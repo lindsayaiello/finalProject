@@ -44,14 +44,6 @@
     height: 50%;
 }
 
-/*All Nested Boxes Under Nav*/
-
-.body-box{
-	background-color: grey;
-	width: 100%;
-	min-height: 800px;
-
-}
 
 /* Left Nav Info */
 .left-nav{
@@ -85,9 +77,16 @@
 /*Feed Space*/
 
 .feed-space{
+	box-sizing: border-box;
+	background-color: grey;
 	width: 80%;
 	min-height: 800px;
-	background-color: #ade4f4;
+	float:right;
+	padding:40px;
+}
+
+.event-card{
+
 }
 
 
