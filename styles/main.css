@@ -86,7 +86,28 @@
 }
 
 .event-card{
+	box-sizing: border-box;
+	width: 100%;
+	background-color: #adf4d6;
+	min-height: 120px;
+	padding:20px;
+}
 
+.user-photo{
+	box-sizing: border-box;
+	float:left;
+	width: 15%;
+	background-color: #d698a2;
+	min-height: 80px;
+
+}
+
+.event-info{
+	box-sizing: border-box;
+	float:right;
+	width:85%;
+	background-color: #f4bf8d;
+	min-height: 80px;
 }
 
 
