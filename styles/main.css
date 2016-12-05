@@ -6,7 +6,6 @@
 }
 
 
-
 /*Top Nav Bar*/
 .nav-wrapper{
 	background-color: black;
@@ -44,6 +43,11 @@
     height: 50%;
 }
 
+.body-wrapper{
+	min-height: 1000px;
+	max-height: 5000px;
+	width: 100%
+}
 
 /* Left Nav Info */
 .left-nav{
@@ -53,16 +57,15 @@
 	min-height: 800px;
 	padding: 12px;
 	box-sizing: border-box;
+	height: inherit;
 }
 
 .left-nav-menu{
 	float: both;
 	background-color:#f7d2ea;
 	width: 100%;
-	min-height: 800px;
-	padding-right: 8px;
-	padding-top: 8px;
-	box-sizing: border-box;
+	padding: 8px;
+	box-sizing: border-box;	
 }
 
 .left-nav-row{
@@ -85,12 +88,22 @@
 	padding:40px;
 }
 
+/*Event Card*/
 .event-card{
 	box-sizing: border-box;
 	width: 100%;
-	background-color: #adf4d6;
+	background-color: white;
 	min-height: 120px;
 	padding:20px;
+}
+
+.event-info{
+	box-sizing: border-box;
+	float:right;
+	width:100%;
+	background-color: #f4bf8d;
+	min-height: 80px;
+	padding:5px;
 }
 
 .user-photo{
@@ -98,16 +111,46 @@
 	float:left;
 	width: 15%;
 	background-color: #d698a2;
-	min-height: 80px;
+	min-height: 70px;
+	padding:10px;
+}
+
+.event-info-header{
+	box-sizing: border-box;
+	padding:5px;
+	float: right;
+	width: 85%;
+}
+
+.event-type-img{
+	box-sizing: border-box;
+	float: right;
+	width: 10%;
+	background-color: #dba4cd;
+	min-height:30px;
+}
+
+.user-style{
+	font-weight: bolder;
+	font-size: 16px;
+}
+
+.event-style{
+	font-size: 14px; 
+}
+
+.time-stamp{
+	font-size:10px;
 
 }
 
-.event-info{
+.event-comments{
 	box-sizing: border-box;
-	float:right;
-	width:85%;
-	background-color: #f4bf8d;
-	min-height: 80px;
+	float: left;
+	width:100%;
+	background-color: #dba4cd;
+	min-height:80px;
+	padding:10px;
 }
 
 
