@@ -87,6 +87,31 @@
 	padding:40px;
 }
 
+/*That's my Dawg!*/
+
+.dog-box{
+	box-sizing: border-box;
+	float: left;
+	height: 300px;
+	width: 100%;
+	background-color: black;
+	padding: 20px;
+}
+
+.dog-header{
+	color:white;
+	text-align: center;
+}
+
+.my-dog-img{
+	box-sizing: border-box;
+	background-color: white;
+	height: 100px;
+	width: 100px;
+}
+
+
+
 /*Event Card*/
 .event-card{
 	box-sizing: border-box;
