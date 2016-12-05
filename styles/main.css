@@ -3,6 +3,7 @@
 .body-info{
 	width:100%;
 	margin:5px;
+	background-color: black;
 }
 
 
@@ -52,7 +53,7 @@
 /* Left Nav Info */
 .left-nav{
 	float: left;
-	background-color:#d2e1f7;
+	background-color:black;
 	width: 20%;
 	min-height: 800px;
 	padding: 12px;
@@ -81,7 +82,7 @@
 
 .feed-space{
 	box-sizing: border-box;
-	background-color: grey;
+	background-color: black;
 	width: 80%;
 	min-height: 800px;
 	float:right;
@@ -92,7 +93,7 @@
 .event-card{
 	box-sizing: border-box;
 	width: 100%;
-	background-color: white;
+	background-color: black;
 	min-height: 120px;
 	padding:20px;
 }
