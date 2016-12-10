@@ -46,6 +46,12 @@
 	padding: 20px;
 }
 
+/*event page info*/
+
+.event-page-style{
+	text-align: center;
+}
+
 
 /*Top Nav Bar*/
 .nav-wrapper{
@@ -138,7 +144,7 @@
 }
 
 .dog-header{
-	color:white;
+	color:black;
 	text-align: center;
 }
 
