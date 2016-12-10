@@ -92,7 +92,6 @@
 .dog-box{
 	box-sizing: border-box;
 	float: left;
-	height: 300px;
 	width: 100%;
 	background-color: black;
 	padding: 20px;
@@ -108,6 +107,8 @@
 	background-color: white;
 	height: 100px;
 	width: 100px;
+	/* this will center block elements BUT you must specify the width*/
+	margin: 0 auto;
 }
 
 
