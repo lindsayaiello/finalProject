@@ -25,6 +25,26 @@
 
 /*sign up page info*/
 
+.signup-fields{
+	text-align: center;
+	padding: 20px;
+}
+
+.validate{
+     box-shadow: 0 .5px 0 0 #000;
+     padding: 4px;
+}
+
+.log-in-btn{
+	margin:10px;
+}
+
+/*invite page info*/
+
+.invite-fields{
+	text-align: center;
+	padding: 20px;
+}
 
 
 /*Top Nav Bar*/
