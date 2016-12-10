@@ -1,15 +1,35 @@
 /* CURRENTLY IN: styles/main.css */
 
+
+/*log in page info*/
+
+.log-in{
+	text-align: center;
+	margin: 20px;
+}
+
+
+.logs{
+	text-align: center;
+}
+.log-in-btn{
+	margin: 0px auto;
+	box-sizing: border-box;
+}
+
 .body-info{
 	width:100%;
 	margin:5px;
-	background-color: black;
+	background-color: white;
 }
+
+/*sign up page info*/
+
 
 
 /*Top Nav Bar*/
 .nav-wrapper{
-	background-color: black;
+	background-color: white;
 	color: white;
 	width: 100%;
 	vertical-align: middle;
@@ -51,7 +71,7 @@
 /* Left Nav Info */
 .left-nav{
 	float: left;
-	background-color:black;
+	background-color:white;
 	width: 20%;
 	min-height: 800px;
 	padding: 12px;
@@ -61,7 +81,7 @@
 
 .left-nav-menu{
 	float: both;
-	background-color:black;
+	background-color:white;
 	width: 100%;
 	padding: 8px;
 	box-sizing: border-box;	
@@ -72,7 +92,7 @@
 	background-color: #4f4b4e;
 	min-height: 20px;
 	margin-top: 10px;
-	color:white;
+	color:black;
 	padding:5px;
 }
 
@@ -80,7 +100,7 @@
 
 .feed-space{
 	box-sizing: border-box;
-	background-color: black;
+	background-color: white;
 	width: 80%;
 	min-height: 800px;
 	float:right;
@@ -93,7 +113,7 @@
 	box-sizing: border-box;
 	float: left;
 	width: 100%;
-	background-color: black;
+	background-color: white;
 	padding: 20px;
 }
 
@@ -104,7 +124,7 @@
 
 .my-dog-img{
 	box-sizing: border-box;
-	background-color: white;
+	background-color: grey;
 	height: 100px;
 	width: 100px;
 	/* this will center block elements BUT you must specify the width*/
@@ -117,7 +137,7 @@
 .event-card{
 	box-sizing: border-box;
 	width: 100%;
-	background-color: black;
+	background-color: white;
 	min-height: 120px;
 	padding:20px;
 }
