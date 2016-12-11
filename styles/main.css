@@ -81,7 +81,7 @@
 .my-btn {
     float: right;
     box-sizing: border-box;
-    background-color: #ffadda;
+    /*background-color: #ffadda;*/
     color: white;
     font-size: 10px;
     margin: 0 5px;
@@ -92,10 +92,6 @@
     width: 100px;
     margin-top: 10px;
     font-family: 'Muli', sans-serif;
-}
-
-.my-btn:hover {
-	background-color: #ffadda;
 }
 
 
