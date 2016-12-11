@@ -1,3 +1,5 @@
+<!-- python -m SimpleHTTPServer 9009
+ -->
 <!doctype html>
 <html>
    <head>
@@ -16,8 +18,6 @@
        <nav class="nav-wrapper clearfix">
          <a href="#" data-activates="slide-out" class="button-collapse slide-menu"><i class="material-icons">menu</i></a>
          <span class="dash-logo">doggie dash</span>
-         <a class="waves-effect waves-light btn my-btn pink accent-1">Sign Out</a>
-         <a class="waves-effect waves-light btn my-btn pink accent-1">Invite Friends</a>
       </nav>
       <!-- END NAV -->
 
@@ -28,10 +28,10 @@
               <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=550%C3%97550&w=550&h=550">
             </div>
             <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
-            <a href="#!name"><span class="white-text name">John Doe</span></a>
-            <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+            <a href="#!name"><span class="white-text name js-user-name">Loading...</span></a>
+            <a href="#!email"><span class="white-text email js-user-email">Loading...</span></a>
           </div></li>
-          <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+          <li><a href="#!"><i class="material-icons">cloud</i>"Freckles's" Dash</a></li>
           <li><a href="#!">Second Link</a></li>
           <li><div class="divider"></div></li>
           <li><a class="subheader">Subheader</a></li>
@@ -45,13 +45,74 @@
                <i class="large material-icons">info_outline</i>
              </a>
              <ul>
-               <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-               <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-               <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-               <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+               <li><a class="btn-floating blue lighten-2"><i class="material-icons">chat_bubble</i></a></li>
+               <li><a class="btn-floating yellow lighten-2"><i class="material-icons">payment</i></a></li>
+               <li><a class="btn-floating green lighten-2"><i class="material-icons">library_add</i></a></li>
              </ul>
            </div>
          <!-- END FLOATING BUTTON -->
+
+         <!-- PAGE ELEMENTS -->
+
+         <!-- SIGN UP FORM... -->
+         <div class="container">
+            <div class="row">
+               <div class="col s9">
+                   <h3>Tell us about your dog</h3>
+                  <div class="card horizontal">
+                     <div class="card-image">
+                        <img src="http://lorempixel.com/100/190/nature/6">
+                     </div>
+                     <div class="card-stacked">
+                        <div class="card-content">
+                           <form>
+                             <div class="input-field col s12">
+                                 <input id="name" type="text" class="validate">
+                                 <label for="name" data-error="wrong" data-success="right">Name</label>
+                              </div>
+                             <div class="input-field col s12">
+                                 <input id="breed" type="text" class="validate">
+                                 <label for="breed" data-error="wrong" data-success="right">Breed</label>
+                              </div>
+                              <div class="input-field col s12">
+                                 <input id="age" type="text" class="validate">
+                                 <label for="age" data-error="wrong" data-success="right">Age</label>
+                              </div>
+                              <div class="input-field col s12">
+                                 <input id="authuser" type="text" class="validate">
+                                 <label for="authuser" data-error="wrong" data-success="right">Invite Authorized Users</label>
+                              </div>
+                              <div class="input-field col s12">
+                                 <input id="vetname" type="text" class="validate">
+                                 <label for="vetname" data-error="wrong" data-success="right">Vet's Name</label>
+                              </div>
+                              <div class="input-field col s12">
+                                 <input id="vetname" type="text" class="validate">
+                                 <label for="vetname" data-error="wrong" data-success="right">Vet's Phone</label>
+                              </div>
+                              <div class="input-field col s12">
+                                 <input id="vetname" type="text" class="validate">
+                                 <label for="vetname" data-error="wrong" data-success="right">Microchip ID#</label>
+                              </div>
+                              <div class="input-field col s12">
+                                 <input id="vetname" type="text" class="validate">
+                                 <label for="vetname" data-error="wrong" data-success="right">Microchip Hotline #</label>
+                              </div>
+                           </form>
+                        </div>
+                        <div class="card-action">
+                           <button class="btn waves-effect waves-light pink accent-1" type="submit" name="action">Submit
+                              <i class="material-icons right">send</i>
+                           </button>
+                        </div><!-- card-action -->
+                     </div><!-- card-stacked -->
+                  </div><!-- card horizontal -->
+               </div><!-- col s12 m7 -->
+            </div><!-- row -->
+         </div><!-- container -->
+         <!-- END SIGN UP FORM... -->
+
+         <!-- END PAGE ELEMENTS -->
 
 
       <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
