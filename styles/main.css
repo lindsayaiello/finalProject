@@ -52,41 +52,52 @@
 	text-align: center;
 }
 
+.slide-menu {
+	color: black;
+}
+
 
 /*Top Nav Bar*/
 .nav-wrapper{
 	background-color: white;
 	color: white;
 	width: 100%;
-	vertical-align: middle;
-	padding: 20px 20px;
 	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 5px;
 }
 
-.brand-logo{
-    float: left;
-    box-sizing: border-box;
-    font-size: 60px;
-    text-align: center;
-    text-decoration: none;
-    color: #fff696;
-    vertical-align: middle;
+.dash-logo{
+	color: black;
+	float: left;
+	margin: 0 auto; 
+	color:#ffadda;
+	font-weight: 900px;
+	font-size: 26px;
+	font-family: 'Muli', sans-serif;
 }
 
 
-.main-nav-link {
+.my-btn {
     float: right;
     box-sizing: border-box;
-    background-color: #f9dbdb;
-    color: #4c4646;
-    width: 10%;
+    background-color: #ffadda;
+    color: white;
     font-size: 10px;
-    padding: 10px;
     margin: 0 5px;
+    padding: 2px;
     text-align: center;
     text-decoration: none;
-    height: 50%;
+    vertical-align: middle;
+    width: 100px;
+    margin-top: 10px;
+    font-family: 'Muli', sans-serif;
 }
+
+.my-btn:hover {
+	background-color: #ffadda;
+}
+
 
 .body-wrapper{
 	min-height: 1000px;
@@ -96,42 +107,18 @@
 
 /* Left Nav Info */
 .left-nav{
-	float: left;
-	background-color:white;
-	width: 20%;
-	min-height: 800px;
-	padding: 12px;
-	box-sizing: border-box;
-	height: inherit;
+width: 20%;
+font-family: 'Muli', sans-serif;
 }
 
-.left-nav-menu{
-	float: both;
-	background-color:white;
-	width: 100%;
-	padding: 8px;
-	box-sizing: border-box;	
+.collapsible-header{
+	font-size: 8px;
 }
 
-.left-nav-row{
-	float:both;
-	background-color: #4f4b4e;
-	min-height: 20px;
-	margin-top: 10px;
-	color:black;
-	padding:5px;
-}
+
 
 /*Feed Space*/
 
-.feed-space{
-	box-sizing: border-box;
-	background-color: white;
-	width: 80%;
-	min-height: 800px;
-	float:right;
-	padding:40px;
-}
 
 /*That's my Dawg!*/
 
