@@ -37,13 +37,13 @@ function authenticateFirebase() {
 		 	var user = result.user;
 		 	// if user doesnt exist, let's log user in
 		  	if (user === null) {
-		  		// logInUser();
+		  		logInUser();
 		  	}
 
 		  	return true;
 		})
 		.catch(function(error){
-			// console.log('IN ERROPR')
+			// console.log('IN ERROR')
 			// this means no user is logged in - let's log someone in
 			// logInUser();
 		});
@@ -81,7 +81,7 @@ function getUserInfo() {
 	  const userEmailEl = $('.js-user-email');
 	  userEmailEl.text(email);
 
-	  // sideBar('show')
+	  sideBar('show')
 	  
 	}
 }
@@ -96,7 +96,7 @@ function buildAccountData() {
 		.then(function(data){
 			// if nothing in there, user is logging in for first time
 			if (data === null) {
-				
+
 			}
 			// user has logged in before, load the activity feed
 			else {

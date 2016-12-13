@@ -116,6 +116,7 @@ font-family: 'Muli', sans-serif;
 /*Feed Space*/
 
 
+
 /*That's my Dawg!*/
 
 .dog-box{
@@ -140,72 +141,16 @@ font-family: 'Muli', sans-serif;
 	margin: 0 auto;
 }
 
+/*Start / End Walk Card*/
 
+.map{
+	float: right;
+	width: 30%;
+}
 
 /*Event Card*/
-.event-card{
-	box-sizing: border-box;
-	width: 100%;
-	background-color: white;
-	min-height: 120px;
-	padding:20px;
-}
 
-.event-info{
-	box-sizing: border-box;
-	float:right;
-	width:100%;
-	background-color: #4f4b4e;
-	min-height: 80px;
-	padding:5px;
-}
 
-.user-photo{
-	box-sizing: border-box;
-	float:left;
-	width: 15%;
-	background-color: #d698a2;
-	min-height: 70px;
-	padding:10px;
-}
-
-.event-info-header{
-	box-sizing: border-box;
-	padding:5px;
-	float: right;
-	width: 85%;
-}
-
-.event-type-img{
-	box-sizing: border-box;
-	float: right;
-	width: 10%;
-	background-color: #dba4cd;
-	min-height:30px;
-}
-
-.user-style{
-	font-weight: bolder;
-	font-size: 16px;
-}
-
-.event-style{
-	font-size: 14px; 
-}
-
-.time-stamp{
-	font-size:10px;
-
-}
-
-.event-comments{
-	box-sizing: border-box;
-	float: left;
-	width:100%;
-	background-color: #4f4b4e;
-	min-height:80px;
-	padding:10px;
-}
 
 
 .clearfix:after {

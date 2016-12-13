@@ -1,5 +1,4 @@
-<!-- python -m SimpleHTTPServer 9009
- -->
+<!-- python -m SimpleHTTPServer 9009 -->
 <!doctype html>
 <html>
    <head>
@@ -14,9 +13,10 @@
    </head>
    <!-- Left Nav Begins -->
    <body class="body-info clearfix">
+
       <!-- BEGIN NAV -->
        <nav class="nav-wrapper clearfix">
-         <a href="#" data-activates="slide-out" class="button-collapse slide-menu"><i class="material-icons">menu</i></a>
+         <a href="#" data-activates="slide-out" class="button-collapse slide-menu"><i class="material-icons">settings</i></a>
          <span class="dash-logo">doggie dash</span>
       </nav>
       <!-- END NAV -->
@@ -31,7 +31,7 @@
             <a href="#!name"><span class="white-text name js-user-name">Loading...</span></a>
             <a href="#!email"><span class="white-text email js-user-email">Loading...</span></a>
           </div></li>
-          <li><a href="#!"><i class="material-icons">cloud</i>"Freckles's" Dash</a></li>
+          <li><a href="#!"><i class="material-icons">cloud</i>"Freckles'" Dash</a></li>
           <li><a href="#!">Second Link</a></li>
           <li><div class="divider"></div></li>
           <li><a class="subheader">Subheader</a></li>
@@ -42,7 +42,7 @@
          <!-- START FLOATING BUTTON -->
          <div class="fixed-action-btn">
              <a class="btn-floating btn-large pink accent-1">
-               <i class="large material-icons">info_outline</i>
+               <i class="large material-icons">reorder</i>
              </a>
              <ul>
                <li><a class="btn-floating blue lighten-2"><i class="material-icons">chat_bubble</i></a></li>
@@ -57,8 +57,8 @@
          <!-- SIGN UP FORM... -->
          <div class="container">
             <div class="row">
-               <div class="col s9">
-                   <h3>Tell us about your dog</h3>
+               <div class="col s9 m12">
+                   <h4>Tell us about your dog!</h4>
                   <div class="card horizontal">
                      <div class="card-image">
                         <img src="http://lorempixel.com/100/190/nature/6">
@@ -112,6 +112,91 @@
          </div><!-- container -->
          <!-- END SIGN UP FORM... -->
 
+         <!-- START WALK CARD -->
+         <div class="container">
+            <div class="row">
+               <div class="col s9 m14">
+                  <div class="card horizontal">
+                     <div class="card-image">
+                        <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+                     </div>
+                     <div class="card-stacked">
+                        <div class="card-content">
+                            <a class="btn-floating btn-large waves-effect waves-light pink lighten-2"><i class="material-icons">play_circle_filled</i></a>
+                            Start Walk!
+                           <br>
+                           <br>
+                           <a class="btn-floating btn-large waves-effect waves-light pink lighten-2"><i class="material-icons">pause_circle_filled</i></a>
+                           End Walk!
+                        </div>
+                           <div class="card-action">
+                        </div><!-- card-action -->
+                     </div><!-- card-stacked -->
+                  </div><!-- card horizontal -->
+               </div><!-- col s12 m7 -->
+            </div><!-- row -->
+         </div><!-- container -->
+         <!-- END WALK CARD -->
+
+
+         <!-- START EVENT CARD -->
+         <div class="container">
+            <div class="row">
+               <div class="col s9 m12">
+                   <h4>Tell us about your walk!</h4>
+                  <div class="card horizontal">
+                     <div class="card-image">
+                        <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+                     </div>
+                     <div class="card-stacked">
+                        <div class="card-content">
+                             <form action="#">
+                                 <p>
+                                 <input type="checkbox" id="pee"/>
+                                 <label for="pee">Pee</label>
+                                  </p>
+                                  <p>
+                                 <input type="checkbox" id="poop"/>
+                                 <label for="poop">Poop</label>
+                                 </p>
+                                 <p>
+                                 <input type="checkbox" id="meal"/>
+                                 <label for="meal">Meal</label>
+                                 </p>
+                              </form>
+                              <form>
+                                 <div class="input-field col s12">
+                                 <input id="walk-data" type="text" class="validate">
+                                 <label for="walk-data" data-error="wrong" data-success="right">Where'd ya go?</label>
+                                 </div>
+                              </form>
+                        </div>
+                        <div class="card-action">
+                           <button class="btn waves-effect waves-light pink accent-1" type="submit" name="action">Submit
+                              <i class="material-icons right">send</i>
+                           </button>
+                        </div><!-- card-action -->
+                     </div><!-- card-stacked -->
+                  </div><!-- card horizontal -->
+               </div><!-- col s12 m7 -->
+            </div><!-- row -->
+         </div><!-- container -->
+         <!-- END EVENT CARD -->
+
+
+      <!-- SPINNER START -->
+      <div class="preloader-wrapper big active">
+         <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+               <div class="circle"></div>
+               </div><div class="gap-patch">
+               <div class="circle"></div>
+               </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+         </div>
+      </div>
+      <!-- SPINNER END -->
          <!-- END PAGE ELEMENTS -->
 
 
