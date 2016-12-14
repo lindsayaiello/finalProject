@@ -37,7 +37,7 @@ function authenticateFirebase() {
 		 	var user = result.user;
 		 	// if user doesnt exist, let's log user in
 		  	if (user === null) {
-		  		logInUser();
+		  		// logInUser();
 		  	}
 
 		  	return true;
