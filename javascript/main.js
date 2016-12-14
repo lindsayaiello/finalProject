@@ -81,7 +81,7 @@ function getUserInfo() {
 	  const userEmailEl = $('.js-user-email');
 	  userEmailEl.text(email);
 
-	  sideBar('show')
+	  // sideBar('show')
 	  
 	}
 }

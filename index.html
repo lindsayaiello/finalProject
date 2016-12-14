@@ -56,150 +56,160 @@
 
          <!-- SIGN UP FORM... -->
          <div class="container">
-            <div class="row">
-               <div class="col s9 m12">
-                   <h4>Tell us about your dog!</h4>
-                  <div class="card horizontal">
-                     <div class="card-image">
-                        <img src="http://lorempixel.com/100/190/nature/6">
+   <div class="row">
+      <div class="col s9 m12">
+         <h4>Tell us about your dog!</h4>
+         <div class="card horizontal">
+            <div class="card-image">
+               <img src="http://lorempixel.com/100/190/nature/6">
+            </div>
+            <div class="card-stacked">
+               <div class="card-content">
+                  <form>
+                     <div class="input-field col s12">
+                        <input id="name" type="text" class="validate">
+                        <label for="name" data-error="wrong" data-success="right">Name</label>
                      </div>
-                     <div class="card-stacked">
-                        <div class="card-content">
-                           <form>
-                             <div class="input-field col s12">
-                                 <input id="name" type="text" class="validate">
-                                 <label for="name" data-error="wrong" data-success="right">Name</label>
-                              </div>
-                             <div class="input-field col s12">
-                                 <input id="breed" type="text" class="validate">
-                                 <label for="breed" data-error="wrong" data-success="right">Breed</label>
-                              </div>
-                              <div class="input-field col s12">
-                                 <input id="age" type="text" class="validate">
-                                 <label for="age" data-error="wrong" data-success="right">Age</label>
-                              </div>
-                              <div class="input-field col s12">
-                                 <input id="authuser" type="text" class="validate">
-                                 <label for="authuser" data-error="wrong" data-success="right">Invite Authorized Users</label>
-                              </div>
-                              <div class="input-field col s12">
-                                 <input id="vetname" type="text" class="validate">
-                                 <label for="vetname" data-error="wrong" data-success="right">Vet's Name</label>
-                              </div>
-                              <div class="input-field col s12">
-                                 <input id="vetname" type="text" class="validate">
-                                 <label for="vetname" data-error="wrong" data-success="right">Vet's Phone</label>
-                              </div>
-                              <div class="input-field col s12">
-                                 <input id="vetname" type="text" class="validate">
-                                 <label for="vetname" data-error="wrong" data-success="right">Microchip ID#</label>
-                              </div>
-                              <div class="input-field col s12">
-                                 <input id="vetname" type="text" class="validate">
-                                 <label for="vetname" data-error="wrong" data-success="right">Microchip Hotline #</label>
-                              </div>
-                           </form>
-                        </div>
-                        <div class="card-action">
-                           <button class="btn waves-effect waves-light pink accent-1" type="submit" name="action">Submit
-                              <i class="material-icons right">send</i>
-                           </button>
-                        </div><!-- card-action -->
-                     </div><!-- card-stacked -->
-                  </div><!-- card horizontal -->
-               </div><!-- col s12 m7 -->
-            </div><!-- row -->
-         </div><!-- container -->
-         <!-- END SIGN UP FORM... -->
-
-         <!-- START WALK CARD -->
-         <div class="container">
-            <div class="row">
-               <div class="col s9 m12">
-                  <h4>Log a New Walk!</h4>
-                  <div class="card horizontal">
-                     <div class="card-image">
-                        <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+                     <div class="input-field col s12">
+                        <input id="breed" type="text" class="validate">
+                        <label for="breed" data-error="wrong" data-success="right">Breed</label>
                      </div>
-                     <div class="card-stacked">
-                        <div class="card-content">
-                            <a class="btn-floating btn-large waves-effect waves-light pink lighten-2"><i class="material-icons">play_circle_filled</i></a>
-                            Start Walk!
-                           <br>
-                           <br>
-                           <a class="btn-floating btn-large waves-effect waves-light pink lighten-2"><i class="material-icons">pause_circle_filled</i></a>
-                           End Walk!
-                        </div>
-                           <div class="card-action">
-                        </div><!-- card-action -->
-                     </div><!-- card-stacked -->
-                  </div><!-- card horizontal -->
-               </div><!-- col s12 m7 -->
-            </div><!-- row -->
-         </div><!-- container -->
-         <!-- END WALK CARD -->
+                     <div class="input-field col s12">
+                        <input id="age" type="text" class="validate">
+                        <label for="age" data-error="wrong" data-success="right">Age</label>
+                     </div>
+                     <div class="input-field col s12">
+                        <input id="authuser" type="text" class="validate">
+                        <label for="authuser" data-error="wrong" data-success="right">Invite Authorized Users</label>
+                     </div>
+                     <div class="input-field col s12">
+                        <input id="vetname" type="text" class="validate">
+                        <label for="vetname" data-error="wrong" data-success="right">Vet's Name</label>
+                     </div>
+                     <div class="input-field col s12">
+                        <input id="vetname" type="text" class="validate">
+                        <label for="vetname" data-error="wrong" data-success="right">Vet's Phone</label>
+                     </div>
+                     <div class="input-field col s12">
+                        <input id="vetname" type="text" class="validate">
+                        <label for="vetname" data-error="wrong" data-success="right">Microchip ID#</label>
+                     </div>
+                     <div class="input-field col s12">
+                        <input id="vetname" type="text" class="validate">
+                        <label for="vetname" data-error="wrong" data-success="right">Microchip Hotline #</label>
+                     </div>
+                  </form>
+               </div>
+               <div class="card-action">
+                  <button class="btn waves-effect waves-light pink accent-1" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                  </button>
+               </div>
+               <!-- card-action -->
+            </div>
+            <!-- card-stacked -->
+         </div>
+         <!-- card horizontal -->
+      </div>
+      <!-- col s12 m7 -->
+   </div>
+   <!-- row -->
+</div>
+<!-- container -->
+<!-- END SIGN UP FORM... -->
 
+
+<!-- START / END WALK CARD V2 -->
+  <div class="container">
+    <div class="row">
+      <div class="col s6 m6">
+        <div class="card large">
+          <div class="card-image">
+            <a href="#!map"><img class="map" src="https://www.google.com/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,Wv56nRcjbOsl3o4dtUOhTxk2U1kGgPmJQ9fCl3dRKBHn5_pzsNdw5aUFfm04gaBqY5k3MBi6jnWMmXghJT3U-SVRXsJuFszyyFPiM1YRobyMGjH_p9vogjmVrXDjEno9gUiVrxMCaAK-EpAngdR_LbjmcDLu0I_VSvnASG-lx_c8vpblZZ9BiNmW_rymymVxYXzqWFG7lWs2IuhojXZWfmLiPqKpLfpldFcbtipIUJknMlIrmRHI90YVZuCRmCT1XlzZZRgpm5Jo2V1f3rrAg15tUbwNAlY2tut0cK4"></a>
+            </div> <!-- card image -->
+              <div class="card-content center">
+              <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+              <br>
+              <h6>Hey
+              <a href="#!name"><span class="black-text name js-user-name"></span></a>,</h6>
+              <h4 class="greeting">Let's Take a Walk!</h4>
+              </div> <!-- card content -->
+            <div class="card-action">
+                <a href="#">This is a link</a>
+            </div> <!-- card action -->
+        </div> <!-- card -->
+      </div> <!-- col s6 m6 -->
+    </div> <!-- row -->
+  </div> <!-- container -->
+    <!-- START / END WALK CARD V2 -->
 
          <!-- START EVENT CARD -->
-         <div class="container">
-            <div class="row">
-               <div class="col s9 m12">
-                   <h4>Tell us about your walk!</h4>
-                  <div class="card horizontal">
-                     <div class="card-image">
-                        <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+<div class="container">
+   <div class="row">
+      <div class="col s9 m12">
+         <h4>Tell us about your walk!</h4>
+         <div class="card horizontal">
+            <div class="card-image">
+               <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+            </div>
+            <div class="card-stacked">
+               <div class="card-content">
+                  <form action="#">
+                     <p>
+                        <input type="checkbox" id="pee"/>
+                        <label for="pee">Pee</label>
+                     </p>
+                     <p>
+                        <input type="checkbox" id="poop"/>
+                        <label for="poop">Poop</label>
+                     </p>
+                     <p>
+                        <input type="checkbox" id="meal"/>
+                        <label for="meal">Meal</label>
+                     </p>
+                  </form>
+                  <form>
+                     <div class="input-field col s12">
+                        <input id="walk-data" type="text" class="validate">
+                        <label for="walk-data" data-error="wrong" data-success="right">Where'd ya go?</label>
                      </div>
-                     <div class="card-stacked">
-                        <div class="card-content">
-                             <form action="#">
-                                 <p>
-                                 <input type="checkbox" id="pee"/>
-                                 <label for="pee">Pee</label>
-                                  </p>
-                                  <p>
-                                 <input type="checkbox" id="poop"/>
-                                 <label for="poop">Poop</label>
-                                 </p>
-                                 <p>
-                                 <input type="checkbox" id="meal"/>
-                                 <label for="meal">Meal</label>
-                                 </p>
-                              </form>
-                              <form>
-                                 <div class="input-field col s12">
-                                 <input id="walk-data" type="text" class="validate">
-                                 <label for="walk-data" data-error="wrong" data-success="right">Where'd ya go?</label>
-                                 </div>
-                              </form>
-                           </div>
-                          <div class="card-action">
-                           <button class="btn waves-effect waves-light pink accent-1" type="submit" name="action">Submit
-                              <i class="material-icons right">send</i>
-                           </button>
-                        </div><!-- card-action -->
-                     </div><!-- card-stacked -->
-                     </div>
-                  </div><!-- card horizontal -->
-               </div><!-- col s12 m7 -->
-            </div><!-- row -->
-         </div><!-- container -->
-         <!-- END EVENT CARD -->
+                  </form>
+               </div>
+               <div class="card-action">
+                  <button class="btn waves-effect waves-light pink accent-1" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                  </button>
+               </div>
+               <!-- card-action -->
+            </div>
+            <!-- card-stacked -->
+         </div>
+      </div>
+      <!-- card horizontal -->
+   </div>
+   <!-- col s12 m7 -->
+</div>
+<!-- row -->
+</div><!-- container -->
+<!-- END EVENT CARD -->
+
 
         <!-- DISPLAY EVENT CARD -->
-         <div class="container">
-            <ul class="collection">
-              <li class="collection-item avatar">
-                <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" alt="#!user" class="js-user-img circle">
-                <span class="title">Title</span>
-                <p>First Line <br>
-                  Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li> <!-- end LI -->
-            </ul> <!-- end UL -->
-
-         </div><!-- container -->
-
+<div class="container">
+   <ul class="collection">
+      <li class="collection-item avatar">
+         <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" alt="#!user" class="js-user-img circle">
+         <span class="title">Title</span>
+         <p>First Line <br>
+            Second Line
+         </p>
+         <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      </li>
+      <!-- end LI -->
+   </ul>
+   <!-- end UL -->
+</div>
+<!-- container -->
         <!-- DISPLAY EVENT CARD -->
 
       <!-- SPINNER START -->
