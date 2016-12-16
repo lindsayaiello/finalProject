@@ -119,6 +119,22 @@
 <!-- END SIGN UP FORM... -->
 
 
+<!-- Things to think about:
+          left nav bar - WHAT are you?? 
+
+          bottom nav bar - do you need a walk AND feed button separately?
+          or do you just need an option to log food PRIOR to the walk?
+          when you hit the NEW button it should be like WALK + food or just WALK? 
+          
+          chat section = how do i initiate a chat?
+                         what does the chat box look like? 
+
+          credit card section = how do initiate payment? 
+                                what does the payment box look like?
+
+          click event = add the click event to your start walk that once its pressed it turns into END walk
+           -->
+
 <!-- START / END WALK CARD V2 -->
 <div class="container">
   <div class="row valign-wrapper">
@@ -134,11 +150,8 @@
               <a href="#!name"><span class="black-text name js-user-name"></span></a>,</h6>
               <h4 class="greeting">Let's Take a Walk!</h4>
               </div> <!-- card content -->
-            <div class="card-action">
-                <a class="waves-effect waves-light btn green lighten-2 left">Start Walk</a>
-            <div class="card-action">
-                <a class="waves-effect waves-light btn green lighten-2 right"> End Walk </a>
-            </div> <!-- card action -->
+            <div class="card-action center">
+                <a class="waves-effect waves-light btn green lighten-2">Start Walk</a>
         </div> <!-- card -->
       </div> <!-- col s6 m6 -->
     </div> <!-- row -->
@@ -202,10 +215,11 @@
    <ul class="collection">
       <li class="collection-item avatar">
          <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" alt="#!user" class="js-user-img circle">
-         <span class="title">Title</span>
-         <p>First Line <br>
-            Second Line
-         </p>
+         <h5><a href="#!name"><span class="black-text name js-user-name"></span></a></h5>
+         <p>#timestamp!!</p>
+         <br>
+         <br>
+         <h6>#info!!!</h6>
          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
       </li>
       <!-- end LI -->
