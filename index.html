@@ -1,134 +1,249 @@
 <!-- python -m SimpleHTTPServer 9009 -->
 <!doctype html>
 <html>
-   <head>
-      <meta charset='utf-8'>
-      <meta name='viewport' content='width=device-width, initial-scale=1.0;'>
-      <title>doggie dash</title>
-
-      <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-      <link rel='stylesheet' href='styles/main.css'>
-   </head>
-   <!-- Left Nav Begins -->
-   <body class="body-info clearfix" id="doggy-dash">
-
-      <!-- BEGIN NAV -->
-       <nav class="nav-wrapper clearfix">
-         <a href="#" data-activates="slide-out" class="button-collapse slide-menu"><i class="material-icons">settings</i></a>
-         <span class="dash-logo">doggie dash</span>
-      </nav>
-      <!-- END NAV -->
-
-      <!-- SLIDE MENU -->
-      <ul id="slide-out" class="side-nav">
-          <li><div class="userView">
-            <div class="background">
-              <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=550%C3%97550&w=550&h=550">
-            </div>
-            <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
-            <a href="#!name"><span class="white-text name js-user-name">Loading...</span></a>
-            <a href="#!email"><span class="white-text email js-user-email">Loading...</span></a>
-          </div></li>
-          <li><a href="#!"><i class="material-icons">cloud</i>"Freckles'" Dash</a></li>
-          <li><a href="#!">Second Link</a></li>
-          <li><div class="divider"></div></li>
-          <li><a class="subheader">Subheader</a></li>
-          <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-        </ul>
-         <!-- END SLIDE MENU -->
-
-         <!-- START FLOATING BUTTON -->
-         <div class="fixed-action-btn">
-             <a class="btn-floating btn-large pink accent-1">
-               <i class="large material-icons">reorder</i>
-             </a>
-             <ul>
-               <li><a class="btn-floating blue lighten-2"><i class="material-icons">chat_bubble</i></a></li>
-               <li><a class="btn-floating yellow lighten-2"><i class="material-icons">payment</i></a></li>
-               <li><a class="btn-floating green lighten-2"><i class="material-icons">library_add</i></a></li>
-             </ul>
-           </div>
-         <!-- END FLOATING BUTTON -->
-
-         <!-- PAGE ELEMENTS -->
-
-         <!-- SIGN UP FORM... -->
-         <div class="container">
-   <div class="row js-dog-info-form section-hide">
-      <div class="col s9 m12">
-         <h4>Tell us about your dog!</h4>
-         <div class="card horizontal">
-            <div class="card-image">
-              <div class="file-field input-field">
-                <div class="btn file-input-img-wrapper">
-                  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=200%C3%97200&w=200&h=200" class="js-file-image-preview">
-                  <input type="file" class="file-input-image js-file-image">
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0;'>
+        <title>doggie dash</title>
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <link rel='stylesheet' href='styles/main.css'>
+    </head>
+    <!-- Left Nav Begins -->
+    <body class="body-info clearfix" id="doggy-dash">
+        <!-- BEGIN NAV -->
+        <nav class="nav-wrapper clearfix">
+            <a href="#" data-activates="slide-out" class="button-collapse slide-menu"><i class="material-icons">settings</i></a>
+            <span class="dash-logo">doggie dash</span>
+        </nav>
+        <!-- END NAV -->
+        <!-- SLIDE MENU -->
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <div class="userView">
+                    <div class="background">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=550%C3%97550&w=550&h=550">
+                    </div>
+                    <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+                    <a href="#!name"><span class="white-text name js-user-name">Loading...</span></a>
+                    <a href="#!email"><span class="white-text email js-user-email">Loading...</span></a>
                 </div>
-              </div><!-- file-field -->
-            </div>
-            <div class="card-stacked">
-               <div class="card-content">
-                  <form>
-                     <div class="input-field col s12">
-                        <input id="name" type="text" class="validate js-dog-name">
-                        <label for="name" data-error="Required Field" data-success="Great name for a dog!">Name</label>
-                     </div>
-                     <div class="input-field col s12">
-                        <input id="breed" type="text" class="validate js-dog-breed">
-                        <label for="breed" data-error="Required Field" data-success="right">Breed</label>
-                     </div>
-                     <div class="input-field col s12">
-                        <input id="age" type="text" class="validate js-dog-age">
-                        <label for="age" data-error="Required Field" data-success="right">Age</label>
-                     </div>
-                     <div class="input-field col s12">
-                        <input id="authuser" type="text" class="validate js-auth-user-1">
-                        <label for="authuser" data-error="Required Field" data-success="right">Invite Authorized Users</label>
-                     </div>
-                     <div class="input-field col s12">
-                        <input id="vetname" type="text" class="validate js-vet-name">
-                        <label for="vetname" data-error="wrong" data-success="right">Vet's Name - Optional</label>
-                     </div>
-                     <div class="input-field col s12">
-                        <input id="vetphone" type="text" class="validate .js-vet-phone">
-                        <label for="vetphone" data-error="wrong" data-success="right">Vet's Phone - Optional</label>
-                     </div>
-                     <div class="input-field col s12">
-                        <input id="microchip" type="text" class="validate js-microchip">
-                        <label for="microchip" data-error="wrong" data-success="right">Microchip ID# - Optional</label>
-                     </div>
-                     <div class="input-field col s12">
-                        <input id="microchiphotline" type="text" class="validate js-microchip-hotline">
-                        <label for="microchiphotline" data-error="wrong" data-success="right">Microchip Hotline # - Optional</label>
-                     </div>
-                  </form>
-               </div>
-               <div class="card-action">
-                  <button class="btn waves-effect waves-light green lighten-2 right js-account-submit" type="submit" name="action">Submit
-                  <i class="material-icons right">send</i>
-                  </button>
-               </div>
-               <!-- card-action -->
-            </div>
-            <!-- card-stacked -->
-         </div>
-         <!-- card horizontal -->
-      </div>
-      <!-- col s12 m7 -->
-   </div>
-   <!-- row -->
-</div>
-<br>
-<br>
-<br>
-<!-- container -->
-<!-- END SIGN UP FORM... -->
+            </li>
+            <li><a href="#!"><i class="material-icons">cloud</i>"Freckles'" Dash</a></li>
+            <li><a href="#!">Second Link</a></li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul>
+        <!-- END SLIDE MENU -->
+        <!-- START FLOATING BUTTON -->
+        <div class="fixed-action-btn js-fixed-action-btn">
+            <a class="btn-floating btn-large pink accent-1">
+            <i class="large material-icons">reorder</i>
+            </a>
+            <ul>
+                <li><a class="btn-floating blue lighten-2"><i class="material-icons">chat_bubble</i></a></li>
+                <li><a class="btn-floating yellow lighten-2"><i class="material-icons">payment</i></a></li>
+                <li><a class="btn-floating green lighten-2 js-walk-btn"><i class="material-icons">library_add</i></a></li>
+            </ul>
+        </div>
+        <!-- END FLOATING BUTTON -->
+        <!-- PAGE ELEMENTS -->
 
-      <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
-      <script src='javascript/main.js'></script>
-   </body>
+      <!-- SPINNER START -->
+        <div class="container">
+            <div class="row js-spinner">
+                <div class="col s9 m12 center">
+                  <br>
+                  <div class="preloader-wrapper big active">
+                     <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                           <div class="circle"></div>
+                           </div><div class="gap-patch">
+                           <div class="circle"></div>
+                           </div><div class="circle-clipper right">
+                          <div class="circle"></div>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+      <!-- SPINNER END -->
+
+
+        <!-- SIGN UP FORM... -->
+        <div class="container">
+            <div class="row js-dog-info-form section-hide">
+                <div class="col s9 m12">
+                    <h4>Tell us about your dog!</h4>
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <div class="file-field input-field">
+                                <div class="btn file-input-img-wrapper">
+                                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=200%C3%97200&w=200&h=200" class="js-file-image-preview img-preview">
+                                    <input type="file" class="file-input-image js-file-image">
+                                </div>
+                            </div>
+                            <!-- file-field -->
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <form>
+                                    <div class="input-field col s12">
+                                        <input id="name" type="text" class="validate js-dog-name">
+                                        <label for="name" data-error="Required Field" data-success="Great name for a dog!">Name</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="breed" type="text" class="validate js-dog-breed">
+                                        <label for="breed" data-error="Required Field" data-success="LOVE!">Breed</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="age" type="text" class="validate js-dog-age">
+                                        <label for="age" data-error="Required Field" data-success="We won't tell!">Age</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="vetname" type="text" class="validate js-vet-name">
+                                        <label for="vetname" data-error="wrong" data-success="right">Vet's Name - Optional</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="vetphone" type="text" class="validate .js-vet-phone">
+                                        <label for="vetphone" data-error="wrong" data-success="right">Vet's Phone - Optional</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="microchip" type="text" class="validate js-microchip">
+                                        <label for="microchip" data-error="wrong" data-success="right">Microchip ID# - Optional</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="microchiphotline" type="text" class="validate js-microchip-hotline">
+                                        <label for="microchiphotline" data-error="wrong" data-success="right">Microchip Hotline # - Optional</label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-action">
+                                <button class="btn waves-effect waves-light green lighten-2 right js-account-submit" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                            <!-- card-action -->
+                        </div>
+                        <!-- card-stacked -->
+                    </div>
+                    <!-- card horizontal -->
+                </div>
+                <!-- col s12 m7 -->
+            </div>
+            <!-- row -->
+        </div>
+        <br>
+        <br>
+        <br>
+        <!-- container -->
+        <!-- END SIGN UP FORM... -->
+
+        <!-- FEED -->
+
+        <div class="container  section-hide js-feed">
+
+            <div class="row">
+              <div class="col s9 m12 center">
+                <img class="js-dog-image circle img-preview">
+              </div>
+            </div>
+           <ul class="collection">
+              <li class="collection-item avatar">
+                 <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" alt="#!user" class="js-user-img circle">
+                 <h5><a href="#!name"><span class="black-text name js-user-name"></span></a></h5>
+                 <p>#timestamp!!</p>
+                 <br>
+                 <h6>#info!!!</h6>
+                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+              </li>
+              <!-- end LI -->
+           </ul>
+           <!-- end UL -->
+        </div>
+
+        <!-- END FEED -->
+
+
+<!-- START / END WALK CARD -->
+<!-- Need help with:
+      making js-dog-name display
+      turning button into end walk on click
+      making map REAL -->
+<div class="container">
+  <div class="row valign-wrapper">
+    <div class="col s6 offset-s3 valign">
+        <div class="card large">
+          <div class="card-image">
+                <a href="#!map"><img class="map" src="https://www.google.com/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,Wv56nRcjbOsl3o4dtUOhTxk2U1kGgPmJQ9fCl3dRKBHn5_pzsNdw5aUFfm04gaBqY5k3MBi6jnWMmXghJT3U-SVRXsJuFszyyFPiM1YRobyMGjH_p9vogjmVrXDjEno9gUiVrxMCaAK-EpAngdR_LbjmcDLu0I_VSvnASG-lx_c8vpblZZ9BiNmW_rymymVxYXzqWFG7lWs2IuhojXZWfmLiPqKpLfpldFcbtipIUJknMlIrmRHI90YVZuCRmCT1XlzZZRgpm5Jo2V1f3rrAg15tUbwNAlY2tut0cK4"></a>
+            </div> <!-- card image -->
+              <div class="card-content center">
+              <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+              <br>
+              <h6>Hey
+              <a href="#!name"><span class="black-text name js-user-name"></span></a>,</h6>
+              <h4 class="greeting">Let's take 
+                <a href="#!name"><span class="black-text name js-dog-name"></span></a>
+              a walk!</h4>
+              </div> <!-- card content -->
+            <div class="card-action center">
+                <a class="waves-effect waves-light btn green lighten-2 js-startWalk" data-on="grey">Start Walk</a>
+        </div> <!-- card -->
+      </div> <!-- col s6 m6 -->
+    </div> <!-- row -->
+    </div>
+  </div> <!-- container -->
+    <!-- START / END WALK CARD -->
+
+
+        <!-- TESTING NEW WALK EVENT CARD -->
+        <div class="container">
+            <div class="row valign-wrapper js-walk section-hide">
+                <div class="col s6 offset-s3 valign">
+                    <div class="card large">
+                        <div class="card-image">
+                            <a href="#!map"><img class="map" src="https://www.google.com/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,Wv56nRcjbOsl3o4dtUOhTxk2U1kGgPmJQ9fCl3dRKBHn5_pzsNdw5aUFfm04gaBqY5k3MBi6jnWMmXghJT3U-SVRXsJuFszyyFPiM1YRobyMGjH_p9vogjmVrXDjEno9gUiVrxMCaAK-EpAngdR_LbjmcDLu0I_VSvnASG-lx_c8vpblZZ9BiNmW_rymymVxYXzqWFG7lWs2IuhojXZWfmLiPqKpLfpldFcbtipIUJknMlIrmRHI90YVZuCRmCT1XlzZZRgpm5Jo2V1f3rrAg15tUbwNAlY2tut0cK4"></a>
+                        </div>
+                        <!-- card image -->
+                        <div class="card-content center">
+                            <form action="#">
+                                <p class="center">
+                                    <input type="checkbox" id="pee"/>
+                                    <label for="pee">
+                                    <img class="small-img" src="assets/pee emoji.png">
+                                    <span>     </span>
+                                    </label> 
+                                    <input type="checkbox" id="poop"/>
+                                    <label for="poop">     <img class="small-img" src="assets/poop emoji.png">
+                                    </label> 
+                                    <input type="checkbox" id="meal"/>
+                                    <label for="meal">     <img class="small-img" src="assets/food emoji.png">
+                                    </label>
+                                </p>
+                            </form>
+                        </div>
+                        <!-- card content -->
+                        <div class="card-action center">
+                            <a class="waves-effect waves-light btn green lighten-2 js-startWalk" data-on="grey">Start Walk</a>
+                        </div>
+                        <!-- card -->
+                    </div>
+                    <!-- col s6 m6 -->
+                </div>
+                <!-- row -->
+            </div>
+        </div>
+        <!-- container -->
+        <!-- START / END WALK CARD -->
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+        <script src='javascript/main.js'></script>
+    </body>
 </html>

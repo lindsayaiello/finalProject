@@ -11,6 +11,8 @@ authenticateFirebase()
 
 const views = {
 	accountData: '.js-dog-info-form',
+	feed: '.js-feed',
+	spinner: '.js-spinner'
 };
 
 // DEFINE FUNCTIONS FOR THIS SITE
@@ -98,19 +100,51 @@ function buildAccountData() {
 			return snapshot.val();
 		})
 		.then(function(data){
-
+			$(views.spinner).addClass('section-hide')
 			// if nothing in there, user is logging in for first time
 			if (data === null) {
 				// views.accountData is *actually* .js-dog-info-form
+				$('.js-fixed-action-btn').hide();
 				$(views.accountData).removeClass('section-hide');
 
 			}
 			// user has logged in before, load the activity feed
 			else {
-
+				populateFeed(user.uid);
 			}
 		});
 }
+
+function populateFeed(uid) {
+	$(views.spinner).addClass('section-hide');
+	$(views.feed).removeClass('section-hide');
+
+	
+	firebase.database().ref('/users/' + uid).once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		})
+		.then(function(data){
+			console.log(data)
+			const dogId = data.dog;
+
+			return dogId;
+		})
+		.then(function(dogId){
+			return firebase.database().ref('/dogs/' + dogId).once('value')
+		})
+		.then(function(snapshot) {
+			console.log(snapshot.val())
+			const dog = snapshot.val()
+			$('.js-dog-image').attr('src', dog.properties.dogImage)
+		})
+
+}
+
+/*
+	START THE UI EVENTS AND STUFF
+*/
+
 
 const accountSubmitButton = $('.js-account-submit');
 accountSubmitButton.click(collectData);
@@ -139,13 +173,6 @@ function collectData(event) {
 		$('.js-dog-age').addClass('invalid')
 	}
 
-	const authUser1 = $('.js-auth-user-1').val();
-	console.log(authUser1)
-
-	if (authUser1 === "") {
-		$('.js-auth-user-1').addClass('invalid')
-	}
-
 	const vetName = $('.js-vet-name').val() || "";
 	console.log(vetName)
 
@@ -160,36 +187,48 @@ function collectData(event) {
 
 	const dogImage = $('.js-file-image-preview').attr('src');
 
-	const accountInfo = {
-		dogName,
-		dogBreed,
-		dogAge,
-		authUser1,
-		vetName,
-		vetPhone,
-		microChip,
-		microChipHotLine,
-		dogImage,
-	};
-
-	console.log(accountInfo)
+	$(views.accountData).addClass('section-hide');
+	$(views.spinner).removeClass('section-hide');
 
 	const user = firebase.auth().currentUser;
 
-	firebase.database().ref('users/' + user.uid).set(accountInfo)
+	const accountInfo = {
+		owner: user.uid,
+		properties: {
+			dogName,
+			dogBreed,
+			dogAge,
+			vetName,
+			vetPhone,
+			microChip,
+			microChipHotLine,
+			dogImage,
+		}
+		
+	};
+
+	const dogId = firebase.database().ref().child('dogs').push().key;
+	firebase.database().ref('dogs/' + dogId).set(accountInfo)
 		.then(function() {
-			console.log('data set!')
+			return firebase.database().ref('users/' + user.uid).set({
+				dog: dogId
+			})
 		})
+		.then(function() {
+			$('.js-fixed-action-btn').show();
+			populateFeed(user.uid)
+		});
 }
 // question - do we need to link this object to MY account? 
 // question - how can I allow for more than one authorized user?
 // question - how do I attach the user uploaded image to object?
+// question - can I use facebook API 'getFriends' to invite auth users?
+// question - do I need to associate .keypress with my submits?
+// question - use import datetime for your event timestamp?
 
 
 const fileImageUpload = $('.js-file-image');
-
 fileImageUpload.change(onFileAdded);
-
 function onFileAdded(e) {
 	console.log(e, e.currentTarget.files[0])
 	const myFile = e.currentTarget.files[0];
@@ -202,5 +241,12 @@ function onFileAdded(e) {
 	console.log(url)
 }
 
+
+const walkButton = $('.js-walk-btn');
+walkButton.click(onWalkBtn);
+
+function onWalkBtn(e) {
+	$(views.feed).addClass('section-hide');
+}
 
 

@@ -157,6 +157,11 @@ font-family: 'Muli', sans-serif;
     background: transparent;
 }
 
+#doggy-dash .img-preview {
+	width: 100%;
+	max-width: 200px;
+}
+
 /*Event Card*/
 
 
