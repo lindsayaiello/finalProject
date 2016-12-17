@@ -12,7 +12,7 @@
       <link rel='stylesheet' href='styles/main.css'>
    </head>
    <!-- Left Nav Begins -->
-   <body class="body-info clearfix">
+   <body class="body-info clearfix" id="doggy-dash">
 
       <!-- BEGIN NAV -->
        <nav class="nav-wrapper clearfix">
@@ -56,52 +56,57 @@
 
          <!-- SIGN UP FORM... -->
          <div class="container">
-   <div class="row">
+   <div class="row js-dog-info-form section-hide">
       <div class="col s9 m12">
          <h4>Tell us about your dog!</h4>
          <div class="card horizontal">
             <div class="card-image">
-               <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=200%C3%97200&w=200&h=200">
+              <div class="file-field input-field">
+                <div class="btn file-input-img-wrapper">
+                  <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=200%C3%97200&w=200&h=200" class="js-file-image-preview">
+                  <input type="file" class="file-input-image js-file-image">
+                </div>
+              </div><!-- file-field -->
             </div>
             <div class="card-stacked">
                <div class="card-content">
                   <form>
                      <div class="input-field col s12">
-                        <input id="name" type="text" class="validate">
-                        <label for="name" data-error="wrong" data-success="right">Name</label>
+                        <input id="name" type="text" class="validate js-dog-name">
+                        <label for="name" data-error="Required Field" data-success="Great name for a dog!">Name</label>
                      </div>
                      <div class="input-field col s12">
-                        <input id="breed" type="text" class="validate">
-                        <label for="breed" data-error="wrong" data-success="right">Breed</label>
+                        <input id="breed" type="text" class="validate js-dog-breed">
+                        <label for="breed" data-error="Required Field" data-success="right">Breed</label>
                      </div>
                      <div class="input-field col s12">
-                        <input id="age" type="text" class="validate">
-                        <label for="age" data-error="wrong" data-success="right">Age</label>
+                        <input id="age" type="text" class="validate js-dog-age">
+                        <label for="age" data-error="Required Field" data-success="right">Age</label>
                      </div>
                      <div class="input-field col s12">
-                        <input id="authuser" type="text" class="validate">
-                        <label for="authuser" data-error="wrong" data-success="right">Invite Authorized Users</label>
+                        <input id="authuser" type="text" class="validate js-auth-user-1">
+                        <label for="authuser" data-error="Required Field" data-success="right">Invite Authorized Users</label>
                      </div>
                      <div class="input-field col s12">
-                        <input id="vetname" type="text" class="validate">
-                        <label for="vetname" data-error="wrong" data-success="right">Vet's Name</label>
+                        <input id="vetname" type="text" class="validate js-vet-name">
+                        <label for="vetname" data-error="wrong" data-success="right">Vet's Name - Optional</label>
                      </div>
                      <div class="input-field col s12">
-                        <input id="vetname" type="text" class="validate">
-                        <label for="vetname" data-error="wrong" data-success="right">Vet's Phone</label>
+                        <input id="vetphone" type="text" class="validate .js-vet-phone">
+                        <label for="vetphone" data-error="wrong" data-success="right">Vet's Phone - Optional</label>
                      </div>
                      <div class="input-field col s12">
-                        <input id="vetname" type="text" class="validate">
-                        <label for="vetname" data-error="wrong" data-success="right">Microchip ID#</label>
+                        <input id="microchip" type="text" class="validate js-microchip">
+                        <label for="microchip" data-error="wrong" data-success="right">Microchip ID# - Optional</label>
                      </div>
                      <div class="input-field col s12">
-                        <input id="vetname" type="text" class="validate">
-                        <label for="vetname" data-error="wrong" data-success="right">Microchip Hotline #</label>
+                        <input id="microchiphotline" type="text" class="validate js-microchip-hotline">
+                        <label for="microchiphotline" data-error="wrong" data-success="right">Microchip Hotline # - Optional</label>
                      </div>
                   </form>
                </div>
                <div class="card-action">
-                  <button class="btn waves-effect waves-light pink accent-1" type="submit" name="action">Submit
+                  <button class="btn waves-effect waves-light green lighten-2 right js-account-submit" type="submit" name="action">Submit
                   <i class="material-icons right">send</i>
                   </button>
                </div>
@@ -115,135 +120,11 @@
    </div>
    <!-- row -->
 </div>
+<br>
+<br>
+<br>
 <!-- container -->
 <!-- END SIGN UP FORM... -->
-
-
-<!-- Things to think about:
-          left nav bar - WHAT are you?? 
-
-          bottom nav bar - do you need a walk AND feed button separately?
-          or do you just need an option to log food PRIOR to the walk?
-          when you hit the NEW button it should be like WALK + food or just WALK? 
-          
-          chat section = how do i initiate a chat?
-                         what does the chat box look like? 
-
-          credit card section = how do initiate payment? 
-                                what does the payment box look like?
-
-          click event = add the click event to your start walk that once its pressed it turns into END walk
-           -->
-
-<!-- START / END WALK CARD V2 -->
-<div class="container">
-  <div class="row valign-wrapper">
-    <div class="col s6 offset-s3 valign">
-        <div class="card large">
-          <div class="card-image">
-            <a href="#!map"><img class="map" src="https://www.google.com/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,Wv56nRcjbOsl3o4dtUOhTxk2U1kGgPmJQ9fCl3dRKBHn5_pzsNdw5aUFfm04gaBqY5k3MBi6jnWMmXghJT3U-SVRXsJuFszyyFPiM1YRobyMGjH_p9vogjmVrXDjEno9gUiVrxMCaAK-EpAngdR_LbjmcDLu0I_VSvnASG-lx_c8vpblZZ9BiNmW_rymymVxYXzqWFG7lWs2IuhojXZWfmLiPqKpLfpldFcbtipIUJknMlIrmRHI90YVZuCRmCT1XlzZZRgpm5Jo2V1f3rrAg15tUbwNAlY2tut0cK4"></a>
-            </div> <!-- card image -->
-              <div class="card-content center">
-              <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
-              <br>
-              <h6>Hey
-              <a href="#!name"><span class="black-text name js-user-name"></span></a>,</h6>
-              <h4 class="greeting">Let's Take a Walk!</h4>
-              </div> <!-- card content -->
-            <div class="card-action center">
-                <a class="waves-effect waves-light btn green lighten-2">Start Walk</a>
-        </div> <!-- card -->
-      </div> <!-- col s6 m6 -->
-    </div> <!-- row -->
-    </div>
-  </div> <!-- container -->
-    <!-- START / END WALK CARD V2 -->
-
-         <!-- START EVENT CARD -->
-<div class="container">
-   <div class="row">
-      <div class="col s9 m12">
-         <h4>Tell us about your walk!</h4>
-         <div class="card horizontal">
-            <div class="card-image">
-               <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
-            </div>
-            <div class="card-stacked">
-               <div class="card-content">
-                  <form action="#">
-                     <p>
-                        <input type="checkbox" id="pee"/>
-                        <label for="pee">Pee</label>
-                     </p>
-                     <p>
-                        <input type="checkbox" id="poop"/>
-                        <label for="poop">Poop</label>
-                     </p>
-                     <p>
-                        <input type="checkbox" id="meal"/>
-                        <label for="meal">Meal</label>
-                     </p>
-                  </form>
-                  <form>
-                     <div class="input-field col s12">
-                        <input id="walk-data" type="text" class="validate">
-                        <label for="walk-data" data-error="wrong" data-success="right">Where'd ya go?</label>
-                     </div>
-                  </form>
-               </div>
-               <div class="card-action">
-                  <button class="btn waves-effect waves-light pink accent-1" type="submit" name="action">Submit
-                  <i class="material-icons right">send</i>
-                  </button>
-               </div>
-               <!-- card-action -->
-            </div>
-            <!-- card-stacked -->
-         </div>
-      </div>
-      <!-- card horizontal -->
-   </div>
-   <!-- col s12 m7 -->
-</div>
-<!-- row -->
-</div> <!-- container -->
-<!-- END EVENT CARD -->
-
-
-        <!-- DISPLAY EVENT CARD -->
-<div class="container">
-   <ul class="collection">
-      <li class="collection-item avatar">
-         <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" alt="#!user" class="js-user-img circle">
-         <h5><a href="#!name"><span class="black-text name js-user-name"></span></a></h5>
-         <p>#timestamp!!</p>
-         <br>
-         <br>
-         <h6>#info!!!</h6>
-         <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-      </li>
-      <!-- end LI -->
-   </ul>
-   <!-- end UL -->
-</div>
-<!-- container -->
-        <!-- DISPLAY EVENT CARD -->
-
-      <!-- SPINNER START -->
-      <div class="preloader-wrapper big active">
-         <div class="spinner-layer spinner-green-only">
-            <div class="circle-clipper left">
-               <div class="circle"></div>
-               </div><div class="gap-patch">
-               <div class="circle"></div>
-               </div><div class="circle-clipper right">
-              <div class="circle"></div>
-            </div>
-         </div>
-      </div>
-      <!-- SPINNER END -->
-         <!-- END PAGE ELEMENTS -->
-
 
       <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
