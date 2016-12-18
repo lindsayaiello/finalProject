@@ -59,7 +59,7 @@
                 <div class="col s9 m12 center">
                   <br>
                   <div class="preloader-wrapper big active">
-                     <div class="spinner-layer spinner-green-only">
+                     <div class="spinner-layer spinner-yellow-only">
                         <div class="circle-clipper left">
                            <div class="circle"></div>
                            </div><div class="gap-patch">
@@ -174,7 +174,7 @@
       making js-dog-name display
       turning button into end walk on click
       making map REAL -->
-<div class="container">
+<div class="container section-hide js-start-walk">
   <div class="row valign-wrapper">
     <div class="col s6 offset-s3 valign">
         <div class="card large">
@@ -182,16 +182,17 @@
                 <a href="#!map"><img class="map" src="https://www.google.com/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,Wv56nRcjbOsl3o4dtUOhTxk2U1kGgPmJQ9fCl3dRKBHn5_pzsNdw5aUFfm04gaBqY5k3MBi6jnWMmXghJT3U-SVRXsJuFszyyFPiM1YRobyMGjH_p9vogjmVrXDjEno9gUiVrxMCaAK-EpAngdR_LbjmcDLu0I_VSvnASG-lx_c8vpblZZ9BiNmW_rymymVxYXzqWFG7lWs2IuhojXZWfmLiPqKpLfpldFcbtipIUJknMlIrmRHI90YVZuCRmCT1XlzZZRgpm5Jo2V1f3rrAg15tUbwNAlY2tut0cK4"></a>
             </div> <!-- card image -->
               <div class="card-content center">
-              <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+              <img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg">
+              <br>
               <br>
               <h6>Hey
               <a href="#!name"><span class="black-text name js-user-name"></span></a>,</h6>
-              <h4 class="greeting">Let's take 
-                <a href="#!name"><span class="black-text name js-dog-name"></span></a>
-              a walk!</h4>
+              <h5 class="greeting">Let's take 
+              a walk with 
+              <a href="#!dogname"><span class="black-text dogname js-dog-name">!</span></a>!</h5>
               </div> <!-- card content -->
             <div class="card-action center">
-                <a class="waves-effect waves-light btn green lighten-2 js-startWalk" data-on="grey">Start Walk</a>
+                <a class="waves-effect waves-light btn green lighten-2 js-start-walk-btn">Start Walk</a>
         </div> <!-- card -->
       </div> <!-- col s6 m6 -->
     </div> <!-- row -->
@@ -201,7 +202,7 @@
 
 
   <!-- WALK RECAP CARD -->
-        <div class="container">
+        <div class="container section-hide">
             <div class="row valign-wrapper">
                 <div class="col s6 offset-s3 valign">
                     <div class="card large">

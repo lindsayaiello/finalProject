@@ -12,7 +12,8 @@ authenticateFirebase()
 const views = {
 	accountData: '.js-dog-info-form',
 	feed: '.js-feed',
-	spinner: '.js-spinner'
+	spinner: '.js-spinner',
+	startWalkCard: '.js-start-walk'
 };
 
 // DEFINE FUNCTIONS FOR THIS SITE
@@ -247,6 +248,30 @@ walkButton.click(onWalkBtn);
 
 function onWalkBtn(e) {
 	$(views.feed).addClass('section-hide');
+	$(views.startWalkCard).removeClass('section-hide');
+	const user = firebase.auth().currentUser;
+	
+	firebase.database().ref('/users/' + user.uid).once('value')
+		.then(function(snapshot) {
+			return snapshot.val();
+		})
+		.then(function(data){
+			console.log(data)
+			const dogId = data.dog;
+
+			return dogId;
+		})
+		.then(function(dogId){
+			return firebase.database().ref('/dogs/' + dogId).once('value')
+		})
+		.then(function(snapshot) {
+			console.log(snapshot.val())
+			const dog = snapshot.val()
+			$('.js-dog-name').text(dog.properties.dogName)
+		})
 }
 
 
+
+
+	
