@@ -1,14 +1,14 @@
 // CALL FUNCTIONS
 
 sideBar();
-initFirebase();
-authenticateFirebase()
-	.then(function() {
-		getUserInfo();
-		buildAccountData();
-	});
+monitorUserAuthentication(function() {
+	getUserInfo();
+	buildAccountData();
+});
 
 
+
+// list of the views
 const views = {
 	accountData: '.js-dog-info-form',
 	feed: '.js-feed',
@@ -27,17 +27,7 @@ function sideBar(whatToDo) {
 	$(".button-collapse").sideNav(whatToDo);
 }
 
-// initialize firebase
-function initFirebase() {
-	const config = {
-	  apiKey: "AIzaSyCa33tJlLm6Ett6mnSR_WB6EUQ8XnrcARE",
-	  authDomain: "dogdash-fd9ab.firebaseapp.com",
-	  databaseURL: "https://dogdash-fd9ab.firebaseio.com",
-	  storageBucket: "dogdash-fd9ab.appspot.com",
-	  messagingSenderId: "65389533694"
-	};
-	firebase.initializeApp(config);	
-}
+
 
 
 // log user in
@@ -48,6 +38,7 @@ function authenticateFirebase() {
 		 	var user = result.user;
 		 	// if user doesnt exist, let's log user in
 		  	if (user === null) {
+		  		// console.log('user is NOT loggedin')
 		  		logInUser();
 		  	}
 
@@ -59,6 +50,20 @@ function authenticateFirebase() {
 			// logInUser();
 		});
 } // firebaseAuth
+
+function monitorUserAuthentication(whatToDoIfUserSignedIn) {
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
+			whatToDoIfUserSignedIn();
+		}
+		else {
+			authenticateFirebase()
+				.then(function() {
+					whatToDoIfUserSignedIn();
+				});
+		}
+	});	
+}
 
 // actually log in user
 function logInUser() {
@@ -72,7 +77,7 @@ function getUserInfo() {
 	const user = firebase.auth().currentUser;
 	let name, email, photoUrl, uid;
 	console.log('###### USER')
-	console.log(user, user.id)
+	console.log(user, user.uid)
 	if (user != null) {
 	  name = user.displayName;
 	  email = user.email;
@@ -121,30 +126,41 @@ function buildAccountData() {
 }
 
 function populateFeed(uid) {
-	$(views.spinner).addClass('section-hide');
-	$(views.feed).removeClass('section-hide');
+	DoggyDash
+		.getDogIdFromUser(firebase.auth().currentUser)
+		.then((dogId) => DoggyDash.getDog(dogId))
+		.then(function(object) {
+			const {dogId, data} = object;
+			$(views.spinner).addClass('section-hide');
 
-	
-	firebase.database().ref('/users/' + uid).once('value')
-		.then(function(snapshot) {
-			return snapshot.val();
-		})
-		.then(function(data){
-			console.log(data)
-			const dogId = data.dog;
+			const currentActivity = data.activities && data.activities[data.currentActivity];
 
-			return dogId;
-		})
-		.then(function(dogId){
-			return firebase.database().ref('/dogs/' + dogId).once('value')
-		})
-		.then(function(snapshot) {
-			console.log(snapshot.val())
-			const dog = snapshot.val()
-			$('.js-dog-image').attr('src', dog.properties.dogImage)
-		})
+			if (typeof currentActivity === "undefined" || currentActivity.actor !== uid) {
+				buildFeed(data);
+				$('.js-dog-image').attr('src', data.properties.dogImage);
+				$(views.feed).removeClass('section-hide');
+			}
+			else {
+				$(views.startWalkBtn).addClass('section-hide');
+				$(views.endWalkBtn).removeClass('section-hide');
 
+				$('.js-walk-greeting').text('Going for a walk with');
+				$('.js-dog-name').text(data.properties.dogName)
+				$(views.startWalkCard).removeClass('section-hide');
+			}
+		});
+} // populateFeed
+
+function buildFeed(data) {
+	console.log(data)
+	const dataAsArr = Object.keys(data.activities).reduce((arr, curr) => {
+		arr.push(data.activities[curr]);
+		return arr;
+	}, []);
+
+	console.log(dataAsArr)
 }
+
 
 /*
 	START THE UI EVENTS AND STUFF
@@ -256,34 +272,45 @@ function onWalkBtn(e) {
 	$(views.startWalkBtn).removeClass('section-hide');
 	const user = firebase.auth().currentUser;
 	
-	firebase.database().ref('/users/' + user.uid).once('value')
-		.then(function(snapshot) {
-			return snapshot.val();
-		})
-		.then(function(data){
-			console.log(data)
-			const dogId = data.dog;
-
-			return dogId;
-		})
-		.then(function(dogId){
-			return firebase.database().ref('/dogs/' + dogId).once('value')
-		})
-		.then(function(snapshot) {
-			console.log(snapshot.val())
-			const dog = snapshot.val()
-			$('.js-dog-name').text(dog.properties.dogName)
+	DoggyDash
+		.getDogIdFromUser(firebase.auth().currentUser)
+		.then((dogId) => DoggyDash.getDog(dogId))
+		.then(function(object) {
+			const {dogId, data} = object;
+			$('.js-dog-name').text(data.properties.dogName)
 		})
 }
 
 const startBtnPress = $('.js-start-walk-btn');
-startBtnPress.click(onBtnPress);
+startBtnPress.click(onStartWalkBtnPress);
 
-function onBtnPress(e) {
-	$(views.startWalkBtn).addClass('section-hide');
-	$(views.endWalkBtn).removeClass('section-hide');
+function onStartWalkBtnPress(e) {
+	const currentElement = $(this);
+	currentElement.attr('disabled', 'disabled');
 
-	$('.js-walk-greeting').text('Going for a walk with');
+	DoggyDash
+		.getDogIdFromUser(firebase.auth().currentUser)
+		.then((dogId) => DoggyDash.getDog(dogId))
+		.then(function(object) {
+			const {dogId, data} = object;
+			const activity = {
+				type: 'walk',
+				properties: {
+					start_time: Date.now(),
+				},
+				actor: firebase.auth().currentUser.uid,
+			};
+
+			return DoggyDash.addActivity(dogId, activity);
+		})
+		.then(function() {
+			$(views.startWalkBtn).addClass('section-hide');
+			$(views.endWalkBtn).removeClass('section-hide');
+
+			$('.js-walk-greeting').text('Going for a walk with');
+			currentElement.removeAttr('disabled');
+		})
+
 }
 
 const endBtnPress = $('.js-end-walk-btn');
@@ -292,19 +319,54 @@ endBtnPress.click(onEndBtnPress);
 function onEndBtnPress(e) {
 	$(views.startWalkCard).addClass('section-hide');
 	$(views.reportCard).removeClass('section-hide');
+
 }
 
 const submitBtnPress = $('.js-submit-walk');
-submitBtnPress.click(onSubmitBtnPress);
+submitBtnPress.click(collectWalkData);
 
-function onSubmitBtnPress(e) {
-	$(views.reportCard).addClass('section-hide');
-	$(views.feed).removeClass('section-hide');
+function collectWalkData(e) {
 
-	$(views.startWalkBtn).removeClass('section-hide');
-	$(views.endWalkBtn).addClass('section-hide');
+	const isPee = $('.js-walk-pee').is(':checked');
+	const isPoop = $('.js-walk-poop').is(':checked');
+	const comment = $('.js-walk-comment').val() || "";
+	const endTime = Date.now();
 
-	$('.js-walk-greeting').text('Let\'s take a walk with');
+	DoggyDash
+		.getDogIdFromUser(firebase.auth().currentUser)
+		.then((dogId) => DoggyDash.getDog(dogId))
+		.then(function(object) {
+			const {dogId, data} = object;
+			console.log(dogId, data)
+
+			const currentActivity = data.currentActivity;
+			const activity = data.activities[currentActivity];
+			const activityObj = {
+				hasPeed: isPee,
+				hasPooped: isPoop,
+				comment: comment,
+				end_time: endTime,
+			};
+
+			if (typeof activity === "undefined") {
+				$(views.feed).removeClass('section-hide');
+				$(views.startWalkCard).addClass('section-hide');
+
+				return;
+			}
+
+			$('.js-dog-image').attr('src', data.properties.dogImage);
+
+			console.log(dogId, activityObj, currentActivity)
+			return DoggyDash.updateActivity(dogId, activityObj, currentActivity);
+		})
+		.then(() => {
+
+			$(views.reportCard).addClass('section-hide');
+			$(views.feed).removeClass('section-hide');
+		});
+
+	
 }
 
 

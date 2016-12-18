@@ -203,7 +203,7 @@
     <!-- START / END WALK CARD -->
 
 
-  <!-- WALK RECAP CARD -->
+  <!-- WALK REPORT CARD -->
         <div class="container js-report-card section-hide">
             <div class="row valign-wrapper">
                 <div class="col s6 offset-s3 valign">
@@ -215,23 +215,21 @@
                         <div class="card-content center">
                             <form action="#">
                                 <div class="center">
-                                    <input type="checkbox" id="pee"/>
+                                    <input class="js-walk-pee" type="checkbox" id="pee" value="false" />
                                     <label for="pee">
                                     <img class="small-img" src="assets/pee emoji.png">
                                     </label>
                                     <span class="white-text">smallcow</span>
-                                    <input type="checkbox" id="poop"/>
+                                    <input type="checkbox" class="js-walk-poop" id="poop"/>
                                     <label for="poop">     
                                     <img class="small-img" src="assets/poop emoji.png">
                                     </label> 
                                 </div>
                             </form>
-                        </div>
-                        <div class="row">
                           <form class="col s12" style="margin-left: 20px;">
                             <div class="row">
                               <div class="input-field col s11">
-                                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                                <textarea id="icon_prefix2" class="materialize-textarea js-walk-comment"></textarea>
                                 <label for="icon_prefix2">All the juicy details...</label>
                               </div>
                             </div>
@@ -249,10 +247,59 @@
             </div>
         </div>
         <!-- container -->
-        <!-- START / END WALK CARD -->
+        <!-- WALK REPORT CARD CARD -->
+
+        <!-- LOG A MEAL CARD -->
+ <div class="container js-log-meal-card section-hide">
+   <div class="row valign-wrapper">
+      <div class="col s6 offset-s3 valign">
+         <div class="card large">
+            <div class="card-content center">
+               <h5>OMG. I love snack time!</h5>
+               <img class="js-dog-image circle img-preview" style='padding:20px;'> 
+               <form action="#">
+                  <div class="center">
+                     <input type="checkbox" id="pee"/>
+                     <label for="pee">
+                     <img class="small-img" src="assets/pee emoji.png">
+                     </label>
+                     <span class="white-text">smallcow</span>
+                     <input type="checkbox" id="poop"/>
+                     <label for="poop">     
+                     <img class="small-img" src="assets/poop emoji.png">
+                     </label>
+                  </div>
+               </form>
+               <form class="col s12" style="margin-left: 20px;">
+                  <div class="row">
+                     <div class="input-field col s11">
+                        <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                        <label for="icon_prefix2">nom, nom, nom...</label>
+                     </div>
+                  </div>
+               </form>
+            </div>
+            <!-- card content -->
+            <div class="card-action center">
+               <a class="waves-effect waves-light btn pink lighten-2 js-submit-walk">Submit</a>
+            </div>
+            <!-- card -->
+         </div>
+         <!-- col s6 m6 -->
+      </div>
+      <!-- row -->
+   </div>
+</div>
+<!-- container -->
+<!-- LOG A MEAL CARD -->
+
+
+
         <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+        <script src="javascript/doggydash.js"></script>
         <script src='javascript/main.js'></script>
+
     </body>
 </html>

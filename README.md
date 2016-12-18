@@ -26,9 +26,6 @@ Things to think about:
 WHAT SHOULD WE DO? WALK OR EAT?
 
 
-
-
-
 Resources: Trello
 https://developers.trello.com/get-started/start-building#connect
 
