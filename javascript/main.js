@@ -13,7 +13,10 @@ const views = {
 	accountData: '.js-dog-info-form',
 	feed: '.js-feed',
 	spinner: '.js-spinner',
-	startWalkCard: '.js-start-walk'
+	startWalkCard: '.js-start-walk',
+	startWalkBtn: '.js-start-walk-btn',
+	endWalkBtn: '.js-end-walk-btn',
+	reportCard: '.js-report-card'
 };
 
 // DEFINE FUNCTIONS FOR THIS SITE
@@ -249,6 +252,7 @@ walkButton.click(onWalkBtn);
 function onWalkBtn(e) {
 	$(views.feed).addClass('section-hide');
 	$(views.startWalkCard).removeClass('section-hide');
+	$(views.startWalkBtn).removeClass('section-hide');
 	const user = firebase.auth().currentUser;
 	
 	firebase.database().ref('/users/' + user.uid).once('value')
@@ -271,7 +275,21 @@ function onWalkBtn(e) {
 		})
 }
 
+const startBtnPress = $('.js-start-walk-btn');
+startBtnPress.click(onBtnPress);
 
+function onBtnPress(e) {
+	$(views.startWalkBtn).addClass('section-hide');
+	$(views.endWalkBtn).removeClass('section-hide');
+}
+
+const endBtnPress = $('.js-end-walk-btn');
+endBtnPress.click(onEndBtnPress);
+
+function onEndBtnPress(e) {
+	$(views.startWalkCard).addClass('section-hide');
+	$(views.reportCard).removeClass('section-hide');
+}
 
 
 	

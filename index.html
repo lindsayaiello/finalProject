@@ -46,7 +46,7 @@
             </a>
             <ul>
                 <li><a class="btn-floating blue lighten-2"><i class="material-icons">comment</i></a></li>
-                <li><a class="btn-floating yellow lighten-2"><i class="material-icons"><i class="material-icons">restaurant_menu</i></i></a></li>
+                <li><a class="btn-floating yellow"><i class="material-icons"><i class="material-icons">restaurant_menu</i></i></a></li>
                 <li><a class="btn-floating green lighten-2 js-walk-btn"><i class="material-icons">directions_walk</i></a></li>
             </ul>
         </div>
@@ -192,7 +192,8 @@
               <a href="#!dogname"><span class="black-text dogname js-dog-name">!</span></a>!</h5>
               </div> <!-- card content -->
             <div class="card-action center">
-                <a class="waves-effect waves-light btn green lighten-2 js-start-walk-btn">Start Walk</a>
+                <a class="waves-effect waves-light btn green lighten-2 js-start-walk-btn section-hide">Start Walk</a>
+                <a class="waves-effect waves-light btn green lighten-2 js-end-walk-btn section-hide">End Walk</a>
         </div> <!-- card -->
       </div> <!-- col s6 m6 -->
     </div> <!-- row -->
@@ -202,7 +203,7 @@
 
 
   <!-- WALK RECAP CARD -->
-        <div class="container section-hide">
+        <div class="container js-report-card section-hide">
             <div class="row valign-wrapper">
                 <div class="col s6 offset-s3 valign">
                     <div class="card large">
@@ -212,24 +213,32 @@
                         <!-- card image -->
                         <div class="card-content center">
                             <form action="#">
-                                <p class="center">
+                                <div class="center">
                                     <input type="checkbox" id="pee"/>
                                     <label for="pee">
                                     <img class="small-img" src="assets/pee emoji.png">
-                                    <span>     </span>
-                                    </label> 
-                                    <input type="checkbox" id="poop"/>
-                                    <label for="poop">     <img class="small-img" src="assets/poop emoji.png">
-                                    </label> 
-                                    <input type="checkbox" id="meal"/>
-                                    <label for="meal">     <img class="small-img" src="assets/food emoji.png">
                                     </label>
-                                </p>
+                                    <span class="white-text">smallcow</span>
+                                    <input type="checkbox" id="poop"/>
+                                    <label for="poop">     
+                                    <img class="small-img" src="assets/poop emoji.png">
+                                    </label> 
+                                </div>
                             </form>
+                        </div>
+                        <div class="row">
+                          <form class="col s12" style="margin-left: 20px;">
+                            <div class="row">
+                              <div class="input-field col s11">
+                                <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                                <label for="icon_prefix2">All the juicy details...</label>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                         <!-- card content -->
                         <div class="card-action center">
-                            <a class="waves-effect waves-light btn green lighten-2 js-startWalk" data-on="grey">Start Walk</a>
+                            <a class="waves-effect waves-light btn pink lighten-2 js-startWalk">Submit</a>
                         </div>
                         <!-- card -->
                     </div>
