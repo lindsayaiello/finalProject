@@ -16,7 +16,8 @@ const views = {
 	startWalkCard: '.js-start-walk',
 	startWalkBtn: '.js-start-walk-btn',
 	endWalkBtn: '.js-end-walk-btn',
-	reportCard: '.js-report-card'
+	reportCard: '.js-report-card',
+	submitWalkBtn: '.js-submit-walk'
 };
 
 // DEFINE FUNCTIONS FOR THIS SITE
@@ -281,6 +282,8 @@ startBtnPress.click(onBtnPress);
 function onBtnPress(e) {
 	$(views.startWalkBtn).addClass('section-hide');
 	$(views.endWalkBtn).removeClass('section-hide');
+
+	$('.js-walk-greeting').text('Going for a walk with');
 }
 
 const endBtnPress = $('.js-end-walk-btn');
@@ -290,6 +293,22 @@ function onEndBtnPress(e) {
 	$(views.startWalkCard).addClass('section-hide');
 	$(views.reportCard).removeClass('section-hide');
 }
+
+const submitBtnPress = $('.js-submit-walk');
+submitBtnPress.click(onSubmitBtnPress);
+
+function onSubmitBtnPress(e) {
+	$(views.reportCard).addClass('section-hide');
+	$(views.feed).removeClass('section-hide');
+
+	$(views.startWalkBtn).removeClass('section-hide');
+	$(views.endWalkBtn).addClass('section-hide');
+
+	$('.js-walk-greeting').text('Let\'s take a walk with');
+}
+
+
+
 
 
 	
