@@ -112,7 +112,38 @@ function buildAccountData() {
 		.then(function(data){
 			$(views.spinner).addClass('section-hide')
 			// if nothing in there, user is logging in for first time
-			if (data === null) {
+			if (window.location.search && data === null) {
+				console.log( window.location.search )
+				const paramsOnly = window.location.search.split('?').pop();
+				const paramsObj = paramsOnly.split('&').reduce((hash, curr) => {
+					const bits = curr.split('=');
+					hash[bits[0]] = bits[1];
+
+					return hash;
+				}, {});
+
+				const dogId = paramsObj.dogId;
+				// firebase.database().ref('users/')
+				DoggyDash.getDog(dogId)
+					.then((obj) => {
+						const {dogId, data} = obj;
+						console.log(dogId, data, firebase.auth().currentUser)
+						return DoggyDash.addNewUser(firebase.auth().currentUser, dogId)
+							.then(() => {
+								return {dogId, data, user: firebase.auth().currentUser};
+							});
+					})
+					.then((obj) => {
+						const {dogId, data, user} = obj;
+
+						return DoggyDash.addUserToDog(user.uid, dogId);
+					})
+					.then(() => {
+						populateFeed(user.uid);
+					})
+				
+			}
+			else if (data === null) {
 				// views.accountData is *actually* .js-dog-info-form
 				$('.js-fixed-action-btn').hide();
 				$(views.accountData).removeClass('section-hide');
@@ -136,8 +167,13 @@ function populateFeed(uid) {
 			const currentActivity = data.activities && data.activities[data.currentActivity];
 
 			if (typeof currentActivity === "undefined" || currentActivity.actor !== uid) {
+				displayInviteLink(dogId);
+
 				buildFeed(data);
-				$('.js-dog-image').attr('src', data.properties.dogImage);
+				if (data && data.properties && data.properties.dogImage) {
+					$('.js-dog-image').attr('src', data.properties.dogImage);
+				}
+				
 				$(views.feed).removeClass('section-hide');
 			}
 			else {
@@ -152,14 +188,88 @@ function populateFeed(uid) {
 } // populateFeed
 
 function buildFeed(data) {
-	console.log(data)
-	const dataAsArr = Object.keys(data.activities).reduce((arr, curr) => {
+	console.log(data, firebase.auth().currentUser)
+	const dataAsArr = Object.keys(data.activities || {}).reduce((arr, curr) => {
 		arr.push(data.activities[curr]);
 		return arr;
-	}, []);
+	}, []).reverse();
 
-	console.log(dataAsArr)
+
+	console.log('BUILDFEED', data)
+	if (dataAsArr.length === 0) return;
+
+	const feed = $(views.feed).find('.collection');
+	feed.html('');
+	DoggyDash.getAllUsers()
+		.then((allUsers) => {
+
+			const userIds = Object.keys(data.authorized_users)
+				.reduce((arr, user) => {
+					arr.push(data.authorized_users[user]);
+					return arr;
+				}, [data.owner])
+				.reduce((hash, current) => {
+					hash[ current ] = allUsers[ current ];
+					return hash;
+				}, {});
+
+			console.log(userIds);
+
+			dataAsArr.forEach(drawFeedItem);
+
+			function drawFeedItem(currentFeedItem) {
+				console.log(currentFeedItem)
+
+				const currentUser = userIds[currentFeedItem.actor];
+
+				const startTime = moment(currentFeedItem.properties.start_time)
+					.format('MMMM Do, h:mm a');
+
+				const timeDiff = moment.duration(currentFeedItem.properties.end_time - currentFeedItem.properties.start_time).humanize();;
+
+				const peeIcon = (currentFeedItem.properties.hasPeed) ? '<img class="small-img" src="assets/pee emoji.png">' : '';
+
+				const poopIcon = (currentFeedItem.properties.hasPooped) ? '<img class="small-img" src="assets/poop emoji.png">' : '';
+
+				const walkComments = currentFeedItem.properties.comment;
+
+				const feedHTML = `
+<li class="collection-item avatar">
+	<img src="${currentUser.photo}" alt="#!user" class="js-user-img circle">
+	<h5>
+		<span class="black-text name">${currentUser.name}</span> took 
+		<span>${data.properties.dogName}</span> 
+		for a 
+		<span>${currentFeedItem.type}</span>
+	</h5>
+	<p>${startTime} for ${timeDiff}</p>
+	<br>
+	<h6>${walkComments}</h6>
+	<a href="#!" class="secondary-content">
+		${peeIcon} ${poopIcon}
+	</a>
+</li>
+				`;
+
+				feed.append(feedHTML)
+			}
+
+
+		});
+
+// 	dataAsArr.forEach(drawFeedItem);
+
+// 	function drawFeedItem(currentFeedItem) {
+// console.log(currentFeedItem)
+// 		const activityType = (currentFeedItem.type);
+// 		const activityTag = $(`<span container="js-activity-type"></span>`)
+
+// 		activityTag.append(activityType)	
+
+// 	}
+
 }
+
 
 
 /*
@@ -229,16 +339,21 @@ function collectData(event) {
 	};
 
 	const dogId = firebase.database().ref().child('dogs').push().key;
+	displayInviteLink(dogId);
+
 	firebase.database().ref('dogs/' + dogId).set(accountInfo)
 		.then(function() {
-			return firebase.database().ref('users/' + user.uid).set({
-				dog: dogId
-			})
+			return DoggyDash.addNewUser(user, dogId);
 		})
 		.then(function() {
 			$('.js-fixed-action-btn').show();
 			populateFeed(user.uid)
 		});
+}
+
+function displayInviteLink(dogId) {
+	$('.js-invite-users').val(window.location.origin + window.location.pathname + '?dogId=' + dogId);
+	$('.js-invite-users').next().addClass('active')
 }
 // question - do we need to link this object to MY account? 
 // question - how can I allow for more than one authorized user?
@@ -360,8 +475,9 @@ function collectWalkData(e) {
 			console.log(dogId, activityObj, currentActivity)
 			return DoggyDash.updateActivity(dogId, activityObj, currentActivity);
 		})
-		.then(() => {
-
+		.then((object) => {
+			const {dogId, data} = object;
+			buildFeed(data)
 			$(views.reportCard).addClass('section-hide');
 			$(views.feed).removeClass('section-hide');
 		});

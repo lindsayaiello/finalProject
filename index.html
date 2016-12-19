@@ -151,12 +151,21 @@
             <div class="row">
               <div class="col s9 m12 center">
                 <img class="js-dog-image circle img-preview">
+                 <div class="input-field col s12">
+                    <input id="invite-users" type="text" class="js-invite-users" readonly="readonly">
+                    <label for="invite-users" class="active">Copy and Paste to invite others</label>
+                  </div>
               </div>
             </div>
            <ul class="collection">
               <li class="collection-item avatar">
                  <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" alt="#!user" class="js-user-img circle">
-                 <h5><a href="#!name"><span class="black-text name js-user-name"></span></a></h5>
+                 <h5>
+                 <span container="js-actor" class="black-text name"></span>took 
+                 <span container="js-dog-name"></span> 
+                 for a 
+                 <span container="js-activity-type"></span>
+                 </h5>
                  <p>#timestamp!!</p>
                  <br>
                  <h6>#info!!!</h6>
@@ -170,10 +179,6 @@
         <!-- END FEED -->
 
 <!-- START / END WALK CARD -->
-<!-- Need help with:
-      making js-dog-name display
-      turning button into end walk on click
-      making map REAL -->
 <div class="container section-hide js-start-walk">
   <div class="row valign-wrapper">
     <div class="col s6 offset-s3 valign">
@@ -298,6 +303,7 @@
         <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
         <script src="javascript/doggydash.js"></script>
         <script src='javascript/main.js'></script>
 

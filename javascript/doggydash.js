@@ -59,7 +59,38 @@ window.DoggyDash = (function() {
 					.child(activityId)
 					.child('properties')
 					.update(activityData);
+			})
+			.then(() => {
+				return getDog(dogId);
+			})
+	}
+
+	function addNewUser(user, dogId) {
+		// console.log(user.photoUrl)
+		return DB.ref().child('/users/' + user.uid).set({
+			dog: dogId,
+			photo: user.photoURL,
+			name: user.displayName,
+			email: user.email
+		});
+	}
+
+	function getUser(uid) {
+		return DB.ref().child('/users'+uid).once('value')
+			.then((snapshot) => {
+				return snapshot.val();
 			});
+	}
+
+	function getAllUsers() {
+		return DB.ref().child('/users').once('value')
+			.then((snapshot) => snapshot.val())
+	}
+
+	function addUserToDog(uid, dogId) {
+		const dogRef = DB.ref().child('dogs').child(dogId);
+
+		return dogRef.child('authorized_users').push(uid);
 	}
 
 	return {
@@ -67,6 +98,10 @@ window.DoggyDash = (function() {
 		getDog,
 		addActivity,
 		updateActivity,
+		addNewUser,
+		addUserToDog,
+		getUser,
+		getAllUsers,
 	};
 })();
 console.log(DoggyDash)
