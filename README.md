@@ -2,6 +2,30 @@
 
 Final Project: Doggie Dash
 
+
+
+Things to think about:
+          left nav bar - WHAT are you?? 
+
+          bottom nav bar - do you need a walk AND feed button separately?
+          or do you just need an option to log food PRIOR to the walk?
+          when you hit the NEW button it should be like WALK + food or just WALK? 
+          
+          chat section = how do i initiate a chat?
+                         what does the chat box look like? 
+
+          credit card section = how do initiate payment? 
+                                what does the payment box look like?
+
+          click event = add the click event to your start walk that once its pressed it turns into END walk
+
+          pull event = when users select that teh dog peed or pooped it should push to the top right corner of your feed card
+          
+
+
+WHAT SHOULD WE DO? WALK OR EAT?
+
+
 Resources: Trello
 https://developers.trello.com/get-started/start-building#connect
 

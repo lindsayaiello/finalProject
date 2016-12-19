@@ -1,46 +1,99 @@
 /* CURRENTLY IN: styles/main.css */
 
+
+/*log in page info*/
+
+.log-in{
+	text-align: center;
+	margin: 20px;
+}
+
+
+.logs{
+	text-align: center;
+}
+.log-in-btn{
+	margin: 0px auto;
+	box-sizing: border-box;
+}
+
 .body-info{
 	width:100%;
 	margin:5px;
-	background-color: black;
+	background-color: white;
+}
+
+/*sign up page info*/
+
+.signup-fields{
+	text-align: center;
+	padding: 20px;
+}
+
+.validate{
+     box-shadow: 0 .5px 0 0 #000;
+     padding: 4px;
+}
+
+.log-in-btn{
+	margin:10px;
+}
+
+/*invite page info*/
+
+.invite-fields{
+	text-align: center;
+	padding: 20px;
+}
+
+/*event page info*/
+
+.event-page-style{
+	text-align: center;
+}
+
+.slide-menu {
+	color: black;
 }
 
 
 /*Top Nav Bar*/
 .nav-wrapper{
-	background-color: black;
+	background-color: white;
 	color: white;
 	width: 100%;
-	vertical-align: middle;
-	padding: 20px 20px;
 	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 5px;
 }
 
-.brand-logo{
-    float: left;
-    box-sizing: border-box;
-    font-size: 60px;
-    text-align: center;
-    text-decoration: none;
-    color: #fff696;
-    vertical-align: middle;
+.dash-logo{
+	color: black;
+	float: left;
+	margin: 0 auto; 
+	color:#ffadda;
+	font-weight: 900px;
+	font-size: 26px;
+	font-family: 'Muli', sans-serif;
 }
 
 
-.main-nav-link {
+.my-btn {
     float: right;
     box-sizing: border-box;
-    background-color: #f9dbdb;
-    color: #4c4646;
-    width: 10%;
+    /*background-color: #ffadda;*/
+    color: white;
     font-size: 10px;
-    padding: 10px;
     margin: 0 5px;
+    padding: 2px;
     text-align: center;
     text-decoration: none;
-    height: 50%;
+    vertical-align: middle;
+    width: 100px;
+    margin-top: 10px;
+    font-family: 'Muli', sans-serif;
 }
+
 
 .body-wrapper{
 	min-height: 1000px;
@@ -50,132 +103,83 @@
 
 /* Left Nav Info */
 .left-nav{
-	float: left;
-	background-color:black;
-	width: 20%;
-	min-height: 800px;
-	padding: 12px;
-	box-sizing: border-box;
-	height: inherit;
+width: 20%;
+font-family: 'Muli', sans-serif;
 }
 
-.left-nav-menu{
-	float: both;
-	background-color:black;
-	width: 100%;
-	padding: 8px;
-	box-sizing: border-box;	
+.collapsible-header{
+	font-size: 8px;
 }
 
-.left-nav-row{
-	float:both;
-	background-color: #4f4b4e;
-	min-height: 20px;
-	margin-top: 10px;
-	color:white;
-	padding:5px;
-}
+
 
 /*Feed Space*/
 
-.feed-space{
-	box-sizing: border-box;
-	background-color: black;
-	width: 80%;
-	min-height: 800px;
-	float:right;
-	padding:40px;
-}
+
 
 /*That's my Dawg!*/
+
+.section-hide {
+	display: none;
+}
 
 .dog-box{
 	box-sizing: border-box;
 	float: left;
-	height: 300px;
 	width: 100%;
-	background-color: black;
+	background-color: white;
 	padding: 20px;
 }
 
 .dog-header{
-	color:white;
+	color:black;
 	text-align: center;
 }
 
 .my-dog-img{
 	box-sizing: border-box;
-	background-color: white;
+	background-color: grey;
 	height: 100px;
 	width: 100px;
+	/* this will center block elements BUT you must specify the width*/
+	margin: 0 auto;
 }
 
+/*Start / End Walk Card*/
+#doggy-dash .file-input-img-wrapper {
+	background: transparent;
+    border: none;
+    box-shadow: none;
+}
 
+#doggy-dash .file-input-image {
+	height: 200px;
+    background: transparent;
+}
+
+#doggy-dash .img-preview {
+	width: 100%;
+	max-width: 200px;
+	padding: 5px;
+}
+
+#doggy-dash .img-preview {
+	width: 100%;
+	max-width: 200px;
+	padding: 20px;
+}
+
+#doggy-dash .card-content {
+	max-height: none;
+}
+
+#doggy-dash .materialize-textarea {
+	padding-bottom: 0;
+}
 
 /*Event Card*/
-.event-card{
-	box-sizing: border-box;
-	width: 100%;
-	background-color: black;
-	min-height: 120px;
-	padding:20px;
-}
 
-.event-info{
-	box-sizing: border-box;
-	float:right;
-	width:100%;
-	background-color: #4f4b4e;
-	min-height: 80px;
-	padding:5px;
-}
 
-.user-photo{
-	box-sizing: border-box;
-	float:left;
-	width: 15%;
-	background-color: #d698a2;
-	min-height: 70px;
-	padding:10px;
-}
-
-.event-info-header{
-	box-sizing: border-box;
-	padding:5px;
-	float: right;
-	width: 85%;
-}
-
-.event-type-img{
-	box-sizing: border-box;
-	float: right;
-	width: 10%;
-	background-color: #dba4cd;
-	min-height:30px;
-}
-
-.user-style{
-	font-weight: bolder;
-	font-size: 16px;
-}
-
-.event-style{
-	font-size: 14px; 
-}
-
-.time-stamp{
-	font-size:10px;
-
-}
-
-.event-comments{
-	box-sizing: border-box;
-	float: left;
-	width:100%;
-	background-color: #4f4b4e;
-	min-height:80px;
-	padding:10px;
-}
 
 
 .clearfix:after {
