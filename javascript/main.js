@@ -20,7 +20,8 @@ const views = {
 	endWalkBtn: '.js-end-walk-btn',
 	reportCard: '.js-report-card',
 	submitWalkBtn: '.js-submit-walk',
-	logMealCard: '.js-log-meal-card'
+	logMealCard: '.js-log-meal-card',
+	logCommentCard: ".js-log-comment-card"
 };
 
 // DEFINE FUNCTIONS FOR THIS SITE
@@ -491,6 +492,63 @@ function collectMealData(e) {
 	const isWater = $('.js-meal-water').is(':checked');
 	const isMeal = $('.js-meal-meal').is(':checked');
 	const comment = $('.js-meal-comment').val() || "";
+	const endTime = Date.now();
+
+
+	// DoggyDash
+	// 	.getDogIdFromUser(firebase.auth().currentUser)
+	// 	.then((dogId) => DoggyDash.getDog(dogId))
+	// 	.then(function(object) {
+	// 		const {dogId, data} = object;
+	// 		console.log(dogId, data)
+
+	// 		const currentActivity = data.currentActivity;
+	// 		const activity = data.activities[currentActivity];
+	// 		const activityObj = {
+	// 			hasWater: isWater,
+	// 			hasMeal: isMeal,
+	// 			comment: comment,
+	// 			end_time: endTime,
+	// 		};
+
+	// 		if (typeof activity === "undefined") {
+	// 			$(views.feed).removeClass('section-hide');
+	// 			$(views.logMealCard).addClass('section-hide');
+
+	// 			return;
+	// 		}
+
+	// 		$('.js-dog-image').attr('src', data.properties.dogImage);
+
+	// 		console.log(dogId, activityObj, currentActivity)
+	// 		return DoggyDash.updateActivity(dogId, activityObj, currentActivity);
+	// 	})
+	// 	.then((object) => {
+	// 		const {dogId, data} = object;
+	// 		buildFeed(data)
+	// 			$(views.feed).removeClass('section-hide');
+	// 			$(views.logMealCard).addClass('section-hide');
+	// 	});
+
+	
+}
+
+
+// LOGGING A COMMENT
+const commentButton = $('.js-comment-btn');
+commentButton.click(onCommentBtn);
+
+function onCommentBtn(e) {
+	$(views.feed).addClass('section-hide');
+	$(views.logCommentCard).removeClass('section-hide');
+}
+
+const submitCommentBtnPress = $('.js-submit-comment');
+submitCommentBtnPress.click(collectCommentData);
+
+function collectCommentData(e) {
+
+	const comment = $('.js-comment-comment').val() || "";
 	const endTime = Date.now();
 
 
