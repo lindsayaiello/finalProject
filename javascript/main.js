@@ -19,7 +19,8 @@ const views = {
 	startWalkBtn: '.js-start-walk-btn',
 	endWalkBtn: '.js-end-walk-btn',
 	reportCard: '.js-report-card',
-	submitWalkBtn: '.js-submit-walk'
+	submitWalkBtn: '.js-submit-walk',
+	logMealCard: '.js-log-meal-card'
 };
 
 // DEFINE FUNCTIONS FOR THIS SITE
@@ -259,17 +260,6 @@ function buildFeed(data) {
 
 		});
 
-// 	dataAsArr.forEach(drawFeedItem);
-
-// 	function drawFeedItem(currentFeedItem) {
-// console.log(currentFeedItem)
-// 		const activityType = (currentFeedItem.type);
-// 		const activityTag = $(`<span container="js-activity-type"></span>`)
-
-// 		activityTag.append(activityType)	
-
-// 	}
-
 }
 
 
@@ -278,6 +268,7 @@ function buildFeed(data) {
 	START THE UI EVENTS AND STUFF
 */
 
+// BUILDING THE ACCOUNT DATA
 
 const accountSubmitButton = $('.js-account-submit');
 accountSubmitButton.click(collectData);
@@ -357,13 +348,7 @@ function displayInviteLink(dogId) {
 	$('.js-invite-users').val(window.location.origin + window.location.pathname + '?dogId=' + dogId);
 	$('.js-invite-users').next().addClass('active')
 }
-// question - do we need to link this object to MY account? 
-// question - how can I allow for more than one authorized user?
-// question - how do I attach the user uploaded image to object?
-// question - can I use facebook API 'getFriends' to invite auth users?
-// question - do I need to associate .keypress with my submits?
-// question - use import datetime for your event timestamp?
-
+	
 
 const fileImageUpload = $('.js-file-image');
 fileImageUpload.change(onFileAdded);
@@ -380,6 +365,7 @@ function onFileAdded(e) {
 }
 
 
+// LOGGING A WALK
 const walkButton = $('.js-walk-btn');
 walkButton.click(onWalkBtn);
 
@@ -439,6 +425,7 @@ function onEndBtnPress(e) {
 
 }
 
+// COLLECTING WALK DATA
 const submitBtnPress = $('.js-submit-walk');
 submitBtnPress.click(collectWalkData);
 
@@ -487,8 +474,60 @@ function collectWalkData(e) {
 	
 }
 
+// LOGGING A MEAL
+const mealButton = $('.js-meal-btn');
+mealButton.click(onMealBtn);
+
+function onMealBtn(e) {
+	$(views.feed).addClass('section-hide');
+	$(views.logMealCard).removeClass('section-hide');
+}
+
+const submitMealBtnPress = $('.js-submit-meal');
+submitMealBtnPress.click(collectMealData);
+
+function collectMealData(e) {
+
+	const isWater = $('.js-meal-water').is(':checked');
+	const isMeal = $('.js-meal-meal').is(':checked');
+	const comment = $('.js-meal-comment').val() || "";
+	const endTime = Date.now();
 
 
+	DoggyDash
+		.getDogIdFromUser(firebase.auth().currentUser)
+		.then((dogId) => DoggyDash.getDog(dogId))
+		.then(function(object) {
+			const {dogId, data} = object;
+			console.log(dogId, data)
 
+			const currentActivity = data.currentActivity;
+			const activity = data.activities[currentActivity];
+			const activityObj = {
+				hasWater: isWater,
+				hasMeal: isMeal,
+				comment: comment,
+				end_time: endTime,
+			};
+
+			if (typeof activity === "undefined") {
+				$(views.feed).removeClass('section-hide');
+				$(views.logMealCard).addClass('section-hide');
+
+				return;
+			}
+
+			$('.js-dog-image').attr('src', data.properties.dogImage);
+
+			console.log(dogId, activityObj, currentActivity)
+			return DoggyDash.updateActivity(dogId, activityObj, currentActivity);
+		})
+		.then((object) => {
+			const {dogId, data} = object;
+			buildFeed(data)
+				$(views.feed).removeClass('section-hide');
+				$(views.logMealCard).addClass('section-hide');
+		});
 
 	
+}
