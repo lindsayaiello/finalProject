@@ -4,6 +4,8 @@ sideBar();
 monitorUserAuthentication(function() {
 	getUserInfo();
 	buildAccountData();
+    addToHomescreen();
+       
 });
 
 
