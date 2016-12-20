@@ -494,40 +494,40 @@ function collectMealData(e) {
 	const endTime = Date.now();
 
 
-	DoggyDash
-		.getDogIdFromUser(firebase.auth().currentUser)
-		.then((dogId) => DoggyDash.getDog(dogId))
-		.then(function(object) {
-			const {dogId, data} = object;
-			console.log(dogId, data)
+	// DoggyDash
+	// 	.getDogIdFromUser(firebase.auth().currentUser)
+	// 	.then((dogId) => DoggyDash.getDog(dogId))
+	// 	.then(function(object) {
+	// 		const {dogId, data} = object;
+	// 		console.log(dogId, data)
 
-			const currentActivity = data.currentActivity;
-			const activity = data.activities[currentActivity];
-			const activityObj = {
-				hasWater: isWater,
-				hasMeal: isMeal,
-				comment: comment,
-				end_time: endTime,
-			};
+	// 		const currentActivity = data.currentActivity;
+	// 		const activity = data.activities[currentActivity];
+	// 		const activityObj = {
+	// 			hasWater: isWater,
+	// 			hasMeal: isMeal,
+	// 			comment: comment,
+	// 			end_time: endTime,
+	// 		};
 
-			if (typeof activity === "undefined") {
-				$(views.feed).removeClass('section-hide');
-				$(views.logMealCard).addClass('section-hide');
+	// 		if (typeof activity === "undefined") {
+	// 			$(views.feed).removeClass('section-hide');
+	// 			$(views.logMealCard).addClass('section-hide');
 
-				return;
-			}
+	// 			return;
+	// 		}
 
-			$('.js-dog-image').attr('src', data.properties.dogImage);
+	// 		$('.js-dog-image').attr('src', data.properties.dogImage);
 
-			console.log(dogId, activityObj, currentActivity)
-			return DoggyDash.updateActivity(dogId, activityObj, currentActivity);
-		})
-		.then((object) => {
-			const {dogId, data} = object;
-			buildFeed(data)
-				$(views.feed).removeClass('section-hide');
-				$(views.logMealCard).addClass('section-hide');
-		});
+	// 		console.log(dogId, activityObj, currentActivity)
+	// 		return DoggyDash.updateActivity(dogId, activityObj, currentActivity);
+	// 	})
+	// 	.then((object) => {
+	// 		const {dogId, data} = object;
+	// 		buildFeed(data)
+	// 			$(views.feed).removeClass('section-hide');
+	// 			$(views.logMealCard).addClass('section-hide');
+	// 	});
 
 	
 }
