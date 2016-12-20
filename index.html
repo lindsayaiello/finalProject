@@ -49,7 +49,7 @@
             <i class="large material-icons">pets</i>
             </a>
             <ul>
-                <li><a class="btn-floating blue lighten-2"><i class="material-icons">comment</i></a></li>
+                <li><a class="btn-floating blue lighten-2 js-comment-btn"><i class="material-icons">comment</i></a></li>
                 <li><a class="btn-floating yellow js-meal-btn"><i class="material-icons"><i class="material-icons">restaurant_menu</i></i></a></li>
                 <li><a class="btn-floating green lighten-2 js-walk-btn"><i class="material-icons">directions_walk</i></a></li>
             </ul>
@@ -302,6 +302,40 @@
 <!-- container -->
 <!-- LOG A MEAL CARD -->
 
+        <!-- LOG A COMMENT CARD -->
+ <div class="container js-log-comment-card section-hide">
+   <div class="row valign-wrapper">
+      <div class="col s12 m12">
+         <div class="card large">
+            <div class="card-content center">
+               <h5>Playtime? Cozy time?
+               <br>
+               Give us the scoop!
+               </h5>
+               <img class="js-dog-image circle img-preview" style='padding:20px;'> 
+            </div>
+            <form class="col s12" style="margin-left: 20px;">
+                  <div class="row">
+                     <div class="input-field col s11">
+                        <textarea id="icon_prefix2" class="materialize-textarea js-comment-comment"></textarea>
+                        <label for="icon_prefix2">rub the belly...</label>
+                     </div>
+                  </div>
+               </form>
+            </div>
+            <!-- card content -->
+            <div class="card-action center">
+               <a class="waves-effect waves-light btn pink lighten-2 js-submit-comment">Submit</a>
+            </div>
+            <!-- card -->
+         </div>
+         <!-- col s6 m6 -->
+      </div>
+      <!-- row -->
+   </div>
+</div>
+<!-- container -->
+<!-- LOG A MEAL CARD -->
 
 
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
