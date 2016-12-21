@@ -17,30 +17,26 @@
     <!-- Left Nav Begins -->
     <body class="body-info clearfix" id="doggy-dash">
         <!-- BEGIN NAV -->
-        <nav class="nav-wrapper clearfix">
+        <nav class="nav-wrapper col s12 m12 clearfix" style="width:98%; margin:1px; padding:0;">
             <a href="#" data-activates="slide-out" class="button-collapse slide-menu"><i class="material-icons">settings</i></a>
             <span class="dash-logo">doggie dash</span>
         </nav>
         <!-- END NAV -->
         <!-- SLIDE MENU -->
-        <ul id="slide-out" class="side-nav">
+        <ul id="slide-out" class="side-nav" style="max-width: 200px;">
             <li>
-                <div class="userView">
+                <div class="userView" style="padding: 70px 10px 0px; height: 200px; width: 200px;">
                     <div class="background">
-                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=550%C3%97550&w=550&h=550">
+                        <img class="js-dog-image file-input-image" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=550%C3%97550&w=550&h=550">
                     </div>
-                    <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg"></a>
+                    <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" ></a>
                     <a href="#!name"><span class="white-text name js-user-name">Loading...</span></a>
                     <a href="#!email"><span class="white-text email js-user-email">Loading...</span></a>
                 </div>
             </li>
-            <li><a href="#!"><i class="material-icons">cloud</i>"Freckles'" Dash</a></li>
-            <li><a href="#!">Second Link</a></li>
-            <li>
-                <div class="divider"></div>
-            </li>
-            <li><a class="subheader">Subheader</a></li>
-            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            <li><a class="waves-effect" href="#!">My Account</a></li>
+            <li><a class="waves-effect" href="#!">Invite Authorized Users</a></li>
+            <li><a class="waves-effect" href="#!">Share Doggie Dash</a></li>
         </ul>
         <!-- END SLIDE MENU -->
         <!-- START FLOATING BUTTON -->
@@ -58,10 +54,10 @@
         <!-- PAGE ELEMENTS -->
 
       <!-- SPINNER START -->
-        <div class="container">
-            <div class="row js-spinner">
-                <div class="col s9 m12 center">
-                  <br>
+            <div class="row center js-spinner">
+              <br>
+              <br>
+                <div class="col s12 m12 center">
                   <div class="preloader-wrapper big active">
                      <div class="spinner-layer spinner-yellow-only">
                         <div class="circle-clipper left">
@@ -143,9 +139,6 @@
             </div>
             <!-- row -->
         </div>
-        <br>
-        <br>
-        <br>
         <!-- container -->
         <!-- END SIGN UP FORM... -->
 
@@ -154,6 +147,8 @@
         <div class="container  section-hide js-feed">
             <div class="row">
               <div class="col s12 m12 center">
+              <br>
+             <h5>Welcome to <a href="#!dogname"><span class="black-text dogname js-dog-name">Loading...</span></a>'s Dash</h5>
                 <img class="js-dog-image circle img-preview">
                  <div class="input-field col s12">
                     <input id="invite-users" type="text" class="js-invite-users" readonly="readonly">
@@ -164,12 +159,12 @@
            <ul class="collection">
               <li class="collection-item avatar">
                  <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" alt="#!user" class="js-user-img circle">
-                 <h6>
+                 <h7>
                  <span container="js-actor" class="black-text name"></span>took 
                  <span container="js-dog-name"></span> 
                  for a 
                  <span container="js-activity-type"></span>
-                 </h6>
+                 </h7>
                  <p>#timestamp!!</p>
                  <br>
                  <h6>#info!!!</h6>
@@ -187,7 +182,8 @@
   <div class="row valign-wrapper">
     <div class="col s12 m12">
         <div class="card large">
-          <div class="card-image">
+            <div class="card-image">
+               <i class="tiny material-icons right js-close-start-walk">close</i>
                 <a href="#!map"><img class="map" src="https://www.google.com/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,Wv56nRcjbOsl3o4dtUOhTxk2U1kGgPmJQ9fCl3dRKBHn5_pzsNdw5aUFfm04gaBqY5k3MBi6jnWMmXghJT3U-SVRXsJuFszyyFPiM1YRobyMGjH_p9vogjmVrXDjEno9gUiVrxMCaAK-EpAngdR_LbjmcDLu0I_VSvnASG-lx_c8vpblZZ9BiNmW_rymymVxYXzqWFG7lWs2IuhojXZWfmLiPqKpLfpldFcbtipIUJknMlIrmRHI90YVZuCRmCT1XlzZZRgpm5Jo2V1f3rrAg15tUbwNAlY2tut0cK4"></a>
             </div> <!-- card image -->
               <div class="card-content center">
