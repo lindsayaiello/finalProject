@@ -36,15 +36,26 @@ window.DoggyDash = (function() {
 			});
 	}
 
-	function addActivity(dogId, activityData) {
+	function addActivity(dogId, activityData, setCurrentActivity = true) {
 		const dogRef = DB.ref().child('dogs').child(dogId);
 		const activitiesRef = dogRef.child('activities');
 		const activityId = activitiesRef.push().key;
 
-		return dogRef.child('currentActivity').set(activityId)
-			.then(() => {
+		let promise;
+
+		if (setCurrentActivity) {
+			promise = dogRef.child('currentActivity').set(activityId);
+		}
+		else {
+			promise = Promise.resolve();
+		}
+		
+		return promise.then(() => {
 				return activitiesRef.child(activityId).set(activityData);
-			});
+			})
+			.then(() => {
+				return getDog(dogId);
+			})
 	}
 
 	function updateActivity(dogId, activityData, activityId) {
