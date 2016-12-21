@@ -176,19 +176,41 @@ function populateFeed(uid) {
 				if (data && data.properties && data.properties.dogImage) {
 					$('.js-dog-image').attr('src', data.properties.dogImage);
 				}
-				
+
+				setDogName(data.properties.dogName);
 				$(views.feed).removeClass('section-hide');
 			}
 			else {
 				$(views.startWalkBtn).addClass('section-hide');
 				$(views.endWalkBtn).removeClass('section-hide');
 
+				setDogName(data.properties.dogName);
 				$('.js-walk-greeting').text('Going for a walk with');
-				$('.js-dog-name').text(data.properties.dogName)
+				
 				$(views.startWalkCard).removeClass('section-hide');
 			}
 		});
 } // populateFeed
+
+function setDogName(name) {
+	// 
+	$('.js-dog-name').text(name);
+	// grab last character in name
+	const lastCharacter = name.slice(-1);
+	console.log("#########", lastCharacter)
+	// if it has an 's', use '
+	// otherwise, use 's
+	if (lastCharacter === 's'){
+		$('.js-dog-name-check-plural').text(name+"'")
+
+	}
+	else{
+		$('.js-dog-name-check-plural').text(name+"'s")
+	}
+
+	// set .js-dog-name-check-plural to plural name
+	
+}
 
 function buildFeed(data) {
 	console.log(data, firebase.auth().currentUser)
@@ -206,7 +228,7 @@ function buildFeed(data) {
 	DoggyDash.getAllUsers()
 		.then((allUsers) => {
 
-			const userIds = Object.keys(data.authorized_users)
+			const userIds = Object.keys(data.authorized_users || {})
 				.reduce((arr, user) => {
 					arr.push(data.authorized_users[user]);
 					return arr;
@@ -218,29 +240,59 @@ function buildFeed(data) {
 
 			console.log(userIds);
 
+			const authenticatedUser = firebase.auth().currentUser;
+
 			dataAsArr.forEach(drawFeedItem);
 
 			function drawFeedItem(currentFeedItem) {
 				console.log(currentFeedItem)
 
 				const currentUser = userIds[currentFeedItem.actor];
+				let userName;
+				if (currentUser.email === authenticatedUser.email) {
+					userName = 'You'
+				}
+				else {
+					userName = currentUser.name;
+				}
 
 				const startTime = moment(currentFeedItem.properties.start_time)
 					.format('MMMM Do, h:mm a');
 
 				const timeDiff = moment.duration(currentFeedItem.properties.end_time - currentFeedItem.properties.start_time).humanize();;
 
-				const peeIcon = (currentFeedItem.properties.hasPeed) ? '<img class="small-img" src="assets/pee emoji.png">' : '';
-
-				const poopIcon = (currentFeedItem.properties.hasPooped) ? '<img class="small-img" src="assets/poop emoji.png">' : '';
-
 				const walkComments = currentFeedItem.properties.comment;
+
+				let icons;
+
+				if (currentFeedItem.type === 'walk') {
+					const peeIcon = (currentFeedItem.properties.hasPeed) ? '<img class="small-img" src="assets/pee emoji.png">' : '';
+
+					const poopIcon = (currentFeedItem.properties.hasPooped) ? '<img class="small-img" src="assets/poop emoji.png">' : '';
+
+					icons = `
+	<a href="#!" class="secondary-content">
+		${peeIcon} ${poopIcon}
+	</a>
+					`;
+				}
+				else if (currentFeedItem.type === 'meal') {
+					const waterIcon = (currentFeedItem.properties.hasWater) ? '<img class="small-img" src="assets/water emoji.png">' : '';
+
+					const mealIcon = (currentFeedItem.properties.hasMeal) ? '<img class="small-img" src="assets/food emoji.png">' : '';
+					
+					icons = `
+	<a href="#!" class="secondary-content">
+		${waterIcon} ${mealIcon}
+	</a>
+					`;
+				}
 
 				const feedHTML = `
 <li class="collection-item avatar">
 	<img src="${currentUser.photo}" alt="#!user" class="js-user-img circle">
 	<h5>
-		<span class="black-text name">${currentUser.name}</span> took 
+		<span class="black-text name">${userName}</span> took 
 		<span>${data.properties.dogName}</span> 
 		for a 
 		<span>${currentFeedItem.type}</span>
@@ -248,9 +300,7 @@ function buildFeed(data) {
 	<p>${startTime} for ${timeDiff}</p>
 	<br>
 	<h6>${walkComments}</h6>
-	<a href="#!" class="secondary-content">
-		${peeIcon} ${poopIcon}
-	</a>
+	${icons}
 </li>
 				`;
 
@@ -380,7 +430,7 @@ function onWalkBtn(e) {
 		.then((dogId) => DoggyDash.getDog(dogId))
 		.then(function(object) {
 			const {dogId, data} = object;
-			$('.js-dog-name').text(data.properties.dogName)
+			setDogName(data.properties.dogName);
 		})
 
 
@@ -504,43 +554,41 @@ function collectMealData(e) {
 	const isWater = $('.js-meal-water').is(':checked');
 	const isMeal = $('.js-meal-meal').is(':checked');
 	const comment = $('.js-meal-comment').val() || "";
-	const endTime = Date.now();
+	const start_time = Date.now();
+	console.log(isWater, isMeal, comment, start_time);
+
+	if (!isWater && !isMeal) {
+		alert('Choose snack type!');
+		return;
+	}
 
 
-	// DoggyDash
-	// 	.getDogIdFromUser(firebase.auth().currentUser)
-	// 	.then((dogId) => DoggyDash.getDog(dogId))
-	// 	.then(function(object) {
-	// 		const {dogId, data} = object;
-	// 		console.log(dogId, data)
+	DoggyDash
+		.getDogIdFromUser(firebase.auth().currentUser)
+		.then((dogId) => DoggyDash.getDog(dogId))
+		.then(function(object) {
+			const {dogId, data} = object;
+			console.log(dogId, data)
 
-	// 		const currentActivity = data.currentActivity;
-	// 		const activity = data.activities[currentActivity];
-	// 		const activityObj = {
-	// 			hasWater: isWater,
-	// 			hasMeal: isMeal,
-	// 			comment: comment,
-	// 			end_time: endTime,
-	// 		};
+			const activity = {
+				type: 'meal',
+				properties: {
+					start_time: start_time,
+					hasWater: isWater,
+					hasMeal: isMeal,
+					comment: comment,
+				},
+				actor: firebase.auth().currentUser.uid,
+			};
 
-	// 		if (typeof activity === "undefined") {
-	// 			$(views.feed).removeClass('section-hide');
-	// 			$(views.logMealCard).addClass('section-hide');
-
-	// 			return;
-	// 		}
-
-	// 		$('.js-dog-image').attr('src', data.properties.dogImage);
-
-	// 		console.log(dogId, activityObj, currentActivity)
-	// 		return DoggyDash.updateActivity(dogId, activityObj, currentActivity);
-	// 	})
-	// 	.then((object) => {
-	// 		const {dogId, data} = object;
-	// 		buildFeed(data)
-	// 			$(views.feed).removeClass('section-hide');
-	// 			$(views.logMealCard).addClass('section-hide');
-	// 	});
+			return DoggyDash.addActivity(dogId, activity, false);
+		})
+		.then((object) => {
+			const {dogId, data} = object;
+			buildFeed(data)
+			$(views.feed).removeClass('section-hide');
+			$(views.logMealCard).addClass('section-hide');
+		});
 
 	
 }
