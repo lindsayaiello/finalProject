@@ -33,7 +33,6 @@ function sideBar(whatToDo) {
 
 
 
-
 // log user in
 function authenticateFirebase() {
 	return firebase.auth().getRedirectResult()
@@ -101,7 +100,7 @@ function getUserInfo() {
 	  const userEmailEl = $('.js-user-email');
 	  userEmailEl.text(email);
 
-	  // sideBar('show')
+	  sideBar('show')
 	  
 	}
 }
@@ -383,7 +382,20 @@ function onWalkBtn(e) {
 			const {dogId, data} = object;
 			$('.js-dog-name').text(data.properties.dogName)
 		})
+
+
+const closeStartWalkBtn = $('.js-close-start-walk');
+closeStartWalkBtn.click(onStartWalkX);
+	
+	function onStartWalkX(e) {
+		$(views.startWalkCard).addClass('section-hide');
+		$(views.feed).removeClass('section-hide');
+	}
+
 }
+
+
+
 
 const startBtnPress = $('.js-start-walk-btn');
 startBtnPress.click(onStartWalkBtnPress);
@@ -548,7 +560,7 @@ submitCommentBtnPress.click(collectCommentData);
 
 function collectCommentData(e) {
 
-	const comment = $('.js-comment-comment').val() || "";
+	const comment = $('.js-meal-comment').val() || "";
 	const endTime = Date.now();
 
 
