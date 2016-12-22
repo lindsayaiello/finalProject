@@ -34,9 +34,11 @@
                     <a href="#!email"><span class="white-text email js-user-email">Loading...</span></a>
                 </div>
             </li>
-            <li><a class="waves-effect" href="#!">My Account</a></li>
-            <li><a class="waves-effect" href="#!">Invite Authorized Users</a></li>
-            <li><a class="waves-effect" href="#!">Share Doggie Dash</a></li>
+            <li><a class="modal-trigger waves-effect" href="#modal3">My Account</a></li>
+            <li><a class="modal-trigger waves-effect" href="#modal1">Invite Authorized Users</a></li>
+            <li><a class="modal-trigger waves-effect" href="#modal2">Share Doggie Dash</a></li>
+
+
         </ul>
         <!-- END SLIDE MENU -->
         <!-- START FLOATING BUTTON -->
@@ -150,25 +152,13 @@
               <br>
              <h5>Welcome to <a href="#!dogname"><span class="black-text dogname js-dog-name-check-plural">Loading...</span></a> Dash</h5>
                 <img class="js-dog-image circle img-preview">
-                 <div class="input-field col s12">
-                    <input id="invite-users" type="text" class="js-invite-users" readonly="readonly">
-                    <label for="invite-users" class="active">Copy and Paste to invite others</label>
-                  </div>
               </div>
             </div>
            <ul class="collection">
               <li class="collection-item avatar">
-                 <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" alt="#!user" class="js-user-img circle">
-                 <h5>
-                 <span container="js-actor" class="black-text name"></span>took 
-                 <span container="js-dog-name"></span>
-                 for a 
-                 <span container="js-activity-type"></span>
-                 </h5>
-                 <p>#timestamp!!</p>
+                 Welcome to Doggie Dash!
                  <br>
-                 <h6>#info!!!</h6>
-                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                 To log a new action click the menu on the bottom!
               </li>
               <!-- end LI -->
            </ul>
@@ -181,7 +171,7 @@
 <div class="container section-hide js-start-walk">
   <div class="row valign-wrapper" style="margin-bottom: 2px; margin-top: 8px;">
     <div class="col s12 m12">
-      <i class="small material-icons right js-close-start-walk">cancel</i>
+      <i class="small material-icons right js-close-start-walk section-hide">cancel</i>
     </div>
   </div>
   <div class="row valign-wrapper">
@@ -215,15 +205,13 @@
   <!-- WALK REPORT CARD -->
         <div class="container js-report-card section-hide">
           <div class="row valign-wrapper" style="margin-bottom: 2px; margin-top: 8px;">
-              <div class="col s12 m12">
-                <i class="small material-icons right js-close-start-walk">cancel</i>
-              </div>
             </div>
              <div class="row valign-wrapper">
               <div class="col s12 m12">
                 <div class="card large">
-                            <a href="#!map"><img class="map" src="https://www.google.com/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,Wv56nRcjbOsl3o4dtUOhTxk2U1kGgPmJQ9fCl3dRKBHn5_pzsNdw5aUFfm04gaBqY5k3MBi6jnWMmXghJT3U-SVRXsJuFszyyFPiM1YRobyMGjH_p9vogjmVrXDjEno9gUiVrxMCaAK-EpAngdR_LbjmcDLu0I_VSvnASG-lx_c8vpblZZ9BiNmW_rymymVxYXzqWFG7lWs2IuhojXZWfmLiPqKpLfpldFcbtipIUJknMlIrmRHI90YVZuCRmCT1XlzZZRgpm5Jo2V1f3rrAg15tUbwNAlY2tut0cK4"></a>
-                        </div>
+                  <div class="card-image">
+                            <a href="#!map"><img class="map" style="padding-bottom:20px;" src="https://www.google.com/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,Wv56nRcjbOsl3o4dtUOhTxk2U1kGgPmJQ9fCl3dRKBHn5_pzsNdw5aUFfm04gaBqY5k3MBi6jnWMmXghJT3U-SVRXsJuFszyyFPiM1YRobyMGjH_p9vogjmVrXDjEno9gUiVrxMCaAK-EpAngdR_LbjmcDLu0I_VSvnASG-lx_c8vpblZZ9BiNmW_rymymVxYXzqWFG7lWs2IuhojXZWfmLiPqKpLfpldFcbtipIUJknMlIrmRHI90YVZuCRmCT1XlzZZRgpm5Jo2V1f3rrAg15tUbwNAlY2tut0cK4"></a>
+                  </div>
                         <!-- card image -->
                         <div class="card-content center">
                             <form action="#">
@@ -239,7 +227,8 @@
                                     </label> 
                                 </div>
                             </form>
-                          <form class="col s12" style="margin-left: 20px;">
+                            </div>
+                          <form class="col s12" style="margin-left: 20px; padding-top: 20px;">
                             <div class="row">
                               <div class="input-field col s11">
                                 <textarea id="icon_prefix2" class="materialize-textarea js-walk-comment"></textarea>
@@ -247,17 +236,15 @@
                               </div>
                             </div>
                           </form>
+                          <div class="card-action center">
+                            <a class="waves-effect waves-light btn pink lighten-2 js-submit-walk">Submit</a>
+                         </div> 
                         </div>
                         <!-- card content -->
-                        <div class="card-action center">
-                            <a class="waves-effect waves-light btn pink lighten-2 js-submit-walk">Submit</a>
-                        </div>
-                        <!-- card -->
-                    </div>
-                    <!-- col s6 m6 -->
-                </div>
-                <!-- row -->
-            </div>
+
+      </div> <!-- col s6 m6 -->
+    </div> <!-- row -->
+  </div> <!-- container -->
         <!-- container -->
         <!-- WALK REPORT CARD CARD -->
 
@@ -338,13 +325,56 @@
   </div> <!-- row -->
 </div> <!-- container -->
 
+<!-- Invite others to your dog dash -->
+  <!-- Modal Structure -->
+  <div id="modal1" style="max-height: 30%;" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h6>Copy & paste the link below to invite others to join
+        <a href="#!dogname">
+          <span class="black-text dogname js-dog-name-check-plural"></span>
+        </a>
+         Dash
+      </h6>
+      <input id="foo" class="js-copy-link" type="text" readonly value="http://localhost:9009/?dogId=-asdfasdfasfd"/>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-pink btn-flat ">Close</a>
+    </div>
+  </div>
+    <!-- End Invite Others -->
+          
+<!-- Share dog dash -->
+  <!-- Modal Structure -->
+  <div id="modal2" style="max-height: 30%;" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h6>Copy & paste the link below to invite other dog owner's to set up their own Doggie Dash!</h6>
+      <input id="foo" class="js-copy-link" type="text" readonly value="https://github.com/lindsayaiello/finalProject/index.html"/>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-pink btn-flat ">Close</a>
+    </div>
+  </div>
+    <!-- End Share Dog Dash -->
 
+<!-- My Account Info Update -->
+  <!-- Modal Structure -->
+  <div id="modal3" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-pink btn-flat ">Agree</a>
+    </div>
+  </div>
+    <!-- End Update My Account Info -->
 
 
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.16/clipboard.min.js"></script>
         <script src="javascript/doggydash.js"></script>
         <script src='javascript/main.js'></script>
 

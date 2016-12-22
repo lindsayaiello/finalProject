@@ -21,7 +21,8 @@ const views = {
 	reportCard: '.js-report-card',
 	submitWalkBtn: '.js-submit-walk',
 	logMealCard: '.js-log-meal-card',
-	logCommentCard: ".js-log-comment-card"
+	logCommentCard: ".js-log-comment-card",
+	closeStartWalkBtn:'.js-close-start-walk'
 };
 
 // DEFINE FUNCTIONS FOR THIS SITE
@@ -30,7 +31,6 @@ const views = {
 function sideBar(whatToDo) {
 	$(".button-collapse").sideNav(whatToDo);
 }
-
 
 
 // log user in
@@ -264,43 +264,15 @@ function buildFeed(data) {
 				const walkComments = currentFeedItem.properties.comment;
 
 				let icons;
+				let feedHTML;
 
 				if (currentFeedItem.type === 'walk') {
 					const peeIcon = (currentFeedItem.properties.hasPeed) ? '<img class="small-img" src="assets/pee emoji.png">' : '';
 
 					const poopIcon = (currentFeedItem.properties.hasPooped) ? '<img class="small-img" src="assets/poop emoji.png">' : '';
 
-					icons = `
-	<a href="#!" class="secondary-content">
-		${peeIcon} ${poopIcon}
-	</a>
-					`;
-				}
 
-				else if (currentFeedItem.type === 'meal') {
-					const waterIcon = (currentFeedItem.properties.hasWater) ? '<img class="small-img" src="assets/water emoji.png">' : '';
-
-					const mealIcon = (currentFeedItem.properties.hasMeal) ? '<img class="small-img" src="assets/food emoji.png">' : '';
-					
-					icons = `
-	<a href="#!" class="secondary-content">
-		${waterIcon} ${mealIcon}
-	</a>
-					`;
-				}
-
-				else if (currentFeedItem.type === 'notes') {
-					const pencilIcon = (currentFeedItem.properties.comment) ? '<img class="small-img" src="assets/pencil emoji.png">' : '';
-					
-					icons = `
-	<a href="#!" class="secondary-content">
-		${pencilIcon} 
-	</a>
-					`;
-				}
-
-
-				const feedHTML = `
+					feedHTML = `
 <li class="collection-item avatar">
 	<img src="${currentUser.photo}" alt="#!user" class="js-user-img circle">
 	<h5>
@@ -312,9 +284,57 @@ function buildFeed(data) {
 	<p>${startTime} for ${timeDiff}</p>
 	<br>
 	<h6>${walkComments}</h6>
-	${icons}
+	<a href="#!" class="secondary-content">
+		${peeIcon} ${poopIcon}
+	</a>
 </li>
-				`;
+					`;
+				}
+				else if (currentFeedItem.type === 'meal') {
+					const waterIcon = (currentFeedItem.properties.hasWater) ? '<img class="small-img" src="assets/water emoji.png">' : '';
+
+					const mealIcon = (currentFeedItem.properties.hasMeal) ? '<img class="small-img" src="assets/food emoji.png">' : '';
+					
+					feedHTML = `
+<li class="collection-item avatar">
+	<img src="${currentUser.photo}" alt="#!user" class="js-user-img circle">
+	<h5>
+		<span class="black-text name">${userName}</span> fed 
+		<span>${data.properties.dogName}</span> 
+		a 
+		<span>${currentFeedItem.type}</span>
+	</h5>
+	<p>at ${startTime}</p>
+	<br>
+	<h6>${walkComments}</h6>
+	<a href="#!" class="secondary-content">
+		${waterIcon} ${mealIcon}
+	</a>
+</li>
+					`;
+				}
+
+				else if (currentFeedItem.type === 'notes') {
+					const pencilIcon = (currentFeedItem.properties.comment) ? '<img class="small-img" src="assets/pencil emoji.png">' : '';
+					
+					feedHTML = `
+<li class="collection-item avatar">
+	<img src="${currentUser.photo}" alt="#!user" class="js-user-img circle">
+	<h5>
+		<span class="black-text name">${userName}</span> left some 
+		<span>${currentFeedItem.type}</span>
+		about 
+		<span>${data.properties.dogName}</span> 
+	</h5>
+	<p>at ${startTime}</p>
+	<br>
+	<h6>${walkComments}</h6>
+	<a href="#!" class="secondary-content">
+		${pencilIcon} 
+	</a>
+</li>
+					`;
+				}
 
 				feed.append(feedHTML)
 			}
@@ -409,6 +429,7 @@ function collectData(event) {
 function displayInviteLink(dogId) {
 	$('.js-invite-users').val(window.location.origin + window.location.pathname + '?dogId=' + dogId);
 	$('.js-invite-users').next().addClass('active')
+	$('.js-copy-link').val(window.location.origin + window.location.pathname + '?dogId=' + dogId)
 }
 	
 
@@ -427,14 +448,35 @@ function onFileAdded(e) {
 }
 
 
+// INVITE OTHERS TO YOUR DOG DASH
+
+$('.js-copy-link').click(function() {
+	$(this).select();
+});
+
+$('#modal1').modal();
+
+// SHARE DOG DASH WITH OTHERS
+
+$('#modal2').modal();
+
+// MY ACCOUNT DATA
+
+$('#modal3').modal();
+
+
 // LOGGING A WALK
 const walkButton = $('.js-walk-btn');
 walkButton.click(onWalkBtn);
 
+;
+
 function onWalkBtn(e) {
 	$(views.feed).addClass('section-hide');
+	$(views.endWalkBtn).addClass('section-hide');
 	$(views.startWalkCard).removeClass('section-hide');
 	$(views.startWalkBtn).removeClass('section-hide');
+	$(views.closeStartWalkBtn).removeClass('section-hide');
 	const user = firebase.auth().currentUser;
 	
 	DoggyDash
@@ -452,6 +494,7 @@ closeStartWalkBtn.click(onStartWalkX);
 	function onStartWalkX(e) {
 		$(views.startWalkCard).addClass('section-hide');
 		$(views.feed).removeClass('section-hide');
+
 	}
 
 }
@@ -464,6 +507,9 @@ startBtnPress.click(onStartWalkBtnPress);
 function onStartWalkBtnPress(e) {
 	const currentElement = $(this);
 	currentElement.attr('disabled', 'disabled');
+	$(views.closeStartWalkBtn).addClass('section-hide');
+	$(views.endWalkBtn).removeClass('section-hide');
+
 
 	DoggyDash
 		.getDogIdFromUser(firebase.auth().currentUser)
@@ -529,7 +575,14 @@ function collectWalkData(e) {
 			if (typeof activity === "undefined") {
 				$(views.feed).removeClass('section-hide');
 				$(views.startWalkCard).addClass('section-hide');
+			}
 
+			$('.js-walk-pee').attr('checked', false);
+			$('.js-walk-poop').attr('checked', false);
+			$('.js-walk-comment').val('');
+
+			if (!comment) {
+				alert('How did it go?');
 				return;
 			}
 
@@ -544,8 +597,6 @@ function collectWalkData(e) {
 			$(views.reportCard).addClass('section-hide');
 			$(views.feed).removeClass('section-hide');
 		});
-
-	
 }
 
 // LOGGING A MEAL
@@ -566,7 +617,6 @@ closeLogMealBtn.click(onLogMealX);
 	}	
 }
 
-
 const submitMealBtnPress = $('.js-submit-meal');
 submitMealBtnPress.click(collectMealData);
 
@@ -577,6 +627,10 @@ function collectMealData(e) {
 	const comment = $('.js-meal-comment').val() || "";
 	const start_time = Date.now();
 	console.log(isWater, isMeal, comment, start_time);
+
+	$('.js-meal-water').attr('checked', false);
+	$('.js-meal-meal').attr('checked', false);
+	$('.js-meal-comment').val('');
 
 	if (!isWater && !isMeal) {
 		alert('Choose snack type!');
@@ -642,6 +696,8 @@ function collectCommentData(e) {
 	const comment = $('.js-comment-comment').val() || "";
 	const start_time = Date.now();
 	console.log(comment, start_time);
+
+	$('.js-comment-comment').val('');
 
 	if (!comment === "") {
 		alert('awww, belly rub please?!');
