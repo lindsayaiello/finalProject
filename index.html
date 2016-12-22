@@ -159,12 +159,12 @@
            <ul class="collection">
               <li class="collection-item avatar">
                  <img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" alt="#!user" class="js-user-img circle">
-                 <h7>
+                 <h5>
                  <span container="js-actor" class="black-text name"></span>took 
-                 <span container="js-dog-name"></span> 
+                 <span container="js-dog-name"></span>
                  for a 
                  <span container="js-activity-type"></span>
-                 </h7>
+                 </h5>
                  <p>#timestamp!!</p>
                  <br>
                  <h6>#info!!!</h6>
@@ -179,9 +179,9 @@
 
 <!-- START / END WALK CARD -->
 <div class="container section-hide js-start-walk">
-  <div class="row valign-wrapper">
+  <div class="row valign-wrapper" style="margin-bottom: 2px; margin-top: 8px;">
     <div class="col s12 m12">
-      <i class="small material-icons right js-close-start-walk">classose</i>
+      <i class="small material-icons right js-close-start-walk">cancel</i>
     </div>
   </div>
   <div class="row valign-wrapper">
@@ -214,10 +214,14 @@
 
   <!-- WALK REPORT CARD -->
         <div class="container js-report-card section-hide">
-            <div class="row valign-wrapper">
-                <div class="col s12 m12">
-                    <div class="card large">
-                        <div class="card-image">
+          <div class="row valign-wrapper" style="margin-bottom: 2px; margin-top: 8px;">
+              <div class="col s12 m12">
+                <i class="small material-icons right js-close-start-walk">cancel</i>
+              </div>
+            </div>
+             <div class="row valign-wrapper">
+              <div class="col s12 m12">
+                <div class="card large">
                             <a href="#!map"><img class="map" src="https://www.google.com/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,Wv56nRcjbOsl3o4dtUOhTxk2U1kGgPmJQ9fCl3dRKBHn5_pzsNdw5aUFfm04gaBqY5k3MBi6jnWMmXghJT3U-SVRXsJuFszyyFPiM1YRobyMGjH_p9vogjmVrXDjEno9gUiVrxMCaAK-EpAngdR_LbjmcDLu0I_VSvnASG-lx_c8vpblZZ9BiNmW_rymymVxYXzqWFG7lWs2IuhojXZWfmLiPqKpLfpldFcbtipIUJknMlIrmRHI90YVZuCRmCT1XlzZZRgpm5Jo2V1f3rrAg15tUbwNAlY2tut0cK4"></a>
                         </div>
                         <!-- card image -->
@@ -254,88 +258,87 @@
                 </div>
                 <!-- row -->
             </div>
-        </div>
         <!-- container -->
         <!-- WALK REPORT CARD CARD -->
 
         <!-- LOG A MEAL CARD -->
- <div class="container section-hide js-log-meal-card">
-   <div class="row valign-wrapper">
-      <div class="col s12 m12">
-         <div class="card large">
-            <div class="card-content center">
-               <h5>OMG. I love snack time!</h5>
-               <img class="js-dog-image circle img-preview" style='padding:20px;'> 
-               <form action="#">
-                  <div class="center">
-                     <input class="js-meal-water" type="checkbox" id="water"/>
-                     <label for="water">
-                     <img class="small-img" src="assets/water emoji.png">
-                     </label>
-                     <span class="white-text">smallcow</span>
-                     <input class="js-meal-meal" type="checkbox" id="food"/>
-                     <label for="food">     
-                     <img class="small-img" src="assets/food emoji.png">
-                     </label>
-                  </div>
-               </form>
-               <form class="col s12" style="margin-left: 20px;">
-                  <div class="row">
-                     <div class="input-field col s11">
-                        <textarea id="icon_prefix2" class="materialize-textarea js-meal-comment"></textarea>
-                        <label for="icon_prefix2">nom, nom, nom...</label>
-                     </div>
-                  </div>
-               </form>
-            </div>
-            <!-- card content -->
-            <div class="card-action center">
-               <a class="waves-effect waves-light btn pink lighten-2 js-submit-meal">Submit</a>
-            </div>
-            <!-- card -->
-         </div>
-         <!-- col s6 m6 -->
-      </div>
-      <!-- row -->
-   </div>
-</div>
-<!-- container -->
-<!-- LOG A MEAL CARD -->
+<div class="container js-log-meal-card section-hide">
+  <div class="row valign-wrapper" style="margin-bottom: 2px; margin-top: 8px;">
+    <div class="col s12 m12">
+      <div class="card large">
+        <i class="small material-icons right js-close-log-meal">cancel</i>
+        <div class="col s12 m12">
+          <div class="card-content center">
+          <h5>OMG. I love snack time!</h5>
+          <img class="js-dog-image circle img-preview" style='padding:20px;'> 
+          <form action="#">
+          <div class="center">
+          <input class="js-meal-water" type="checkbox" id="water"/>
+          <label for="water">
+          <img class="small-img" src="assets/water emoji.png">
+          </label>
+          <span class="white-text">smallcow</span>
+          <input class="js-meal-meal" type="checkbox" id="food"/>
+          <label for="food">     
+          <img class="small-img" src="assets/food emoji.png">
+          </label>
+          </div>
+          </form>
+          <form class="col s12" style="margin-left: 20px;">
+          <div class="row">
+          <div class="input-field col s11">
+          <textarea id="icon_prefix2" class="materialize-textarea js-meal-comment"></textarea>
+          <label for="icon_prefix2">nom, nom, nom...</label>
+          </div>
+          </div>
+          </form>
+          </div>
+          <!-- card content -->
+          <div class="card-action center">
+          <a class="waves-effect waves-light btn pink lighten-2 js-submit-meal">Submit</a>
+          </div>
+          <!-- card -->
+          </div>
+          <!-- col s6 m6 -->
+      </div> <!-- card large -->
+    </div> <!-- col s12 m12 -->
+        
+    </div> <!-- row valign-wrapper -->
+  </div> <!-- row valign-wrapper -->
+</div> <!-- container js-log-meal-card -->
 
         <!-- LOG A COMMENT CARD -->
- <div class="container js-log-comment-card section-hide">
-   <div class="row valign-wrapper">
-      <div class="col s12 m12">
-         <div class="card large">
-            <div class="card-content center">
-               <h5>Playtime? Cozy time?
-               <br>
-               Give us the scoop!
-               </h5>
-               <img class="js-dog-image circle img-preview" style='padding:20px;'> 
-            </div>
-            <form class="col s12" style="margin-left: 20px;">
-                  <div class="row">
-                     <div class="input-field col s11">
-                        <textarea id="icon_prefix2" class="materialize-textarea js-comment-comment"></textarea>
-                        <label for="icon_prefix2">rub the belly...</label>
-                     </div>
-                  </div>
-               </form>
-            </div>
-            <!-- card content -->
-            <div class="card-action center">
-               <a class="waves-effect waves-light btn pink lighten-2 js-submit-comment">Submit</a>
-            </div>
-            <!-- card -->
-         </div>
-         <!-- col s6 m6 -->
-      </div>
-      <!-- row -->
-   </div>
-</div>
-<!-- container -->
-<!-- LOG A MEAL CARD -->
+<div class="container js-log-comment-card section-hide">
+  <div class="row valign-wrapper">
+    <div class="col s12 m12">
+      <div class="card large">
+          <i class="small material-icons right js-close-log-comment">cancel</i>
+            <div class="col s12 m12">
+              <div class="card-content center">
+            <h5>Playtime? Cozy time?
+            <br>
+            Give us the scoop!
+            </h5>
+            <img class="js-dog-image circle img-preview" style='padding:20px;'> 
+        <form class="col s12" style="margin-left: 20px;">
+          <div class="row">
+            <div class="input-field col s11">
+              <textarea id="icon_prefix2" class="materialize-textarea js-comment-comment"></textarea>
+              <label for="icon_prefix2">rub the belly...</label>
+            </div> <!-- input-field col s11 -->
+          </div> <!-- row -->
+        </form> <!-- col s12 -->
+        </div> <!-- card content -->
+        <div class="card-action center">
+          <a class="waves-effect waves-light btn pink lighten-2 js-submit-comment">Submit</a>
+        </div> <!-- card action center -->
+        </div>
+      </div> <!-- card large -->
+    </div><!-- col s6 m6 -->
+  </div> <!-- row -->
+</div> <!-- container -->
+
+
 
 
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>

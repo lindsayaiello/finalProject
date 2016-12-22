@@ -164,7 +164,7 @@ font-family: 'Muli', sans-serif;
 
 #doggy-dash .img-preview {
 	width: 100%;
-	max-width: 200px;
+	max-width: 200pxs;
 	padding: 5px;
 }
 
@@ -186,7 +186,7 @@ font-family: 'Muli', sans-serif;
 
 
 #doggy-dash .collection-item h5 {
-	padding-right: 30px;
+	padding-right: 50px;
 }
 
 #doggy-dash .collection-item .small-img {
