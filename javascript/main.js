@@ -50,7 +50,7 @@ function authenticateFirebase() {
 		.catch(function(error){
 			// console.log('IN ERROR')
 			// this means no user is logged in - let's log someone in
-			// logInUser();
+			logInUser();
 		});
 } // firebaseAuth
 
@@ -100,7 +100,7 @@ function getUserInfo() {
 	  const userEmailEl = $('.js-user-email');
 	  userEmailEl.text(email);
 
-	  sideBar('show')
+	  // sideBar('show')
 	  
 	}
 }
@@ -276,6 +276,7 @@ function buildFeed(data) {
 	</a>
 					`;
 				}
+
 				else if (currentFeedItem.type === 'meal') {
 					const waterIcon = (currentFeedItem.properties.hasWater) ? '<img class="small-img" src="assets/water emoji.png">' : '';
 
@@ -287,6 +288,17 @@ function buildFeed(data) {
 	</a>
 					`;
 				}
+
+				else if (currentFeedItem.type === 'notes') {
+					const pencilIcon = (currentFeedItem.properties.comment) ? '<img class="small-img" src="assets/pencil emoji.png">' : '';
+					
+					icons = `
+	<a href="#!" class="secondary-content">
+		${pencilIcon} 
+	</a>
+					`;
+				}
+
 
 				const feedHTML = `
 <li class="collection-item avatar">
@@ -446,7 +458,6 @@ closeStartWalkBtn.click(onStartWalkX);
 
 
 
-
 const startBtnPress = $('.js-start-walk-btn');
 startBtnPress.click(onStartWalkBtnPress);
 
@@ -543,8 +554,18 @@ mealButton.click(onMealBtn);
 
 function onMealBtn(e) {
 	$(views.feed).addClass('section-hide');
+	$(views.logCommentCard).addClass('section-hide');
 	$(views.logMealCard).removeClass('section-hide');
+
+const closeLogMealBtn = $('.js-close-log-meal');
+closeLogMealBtn.click(onLogMealX);
+	
+	function onLogMealX(e) {
+		$(views.logMealCard).addClass('section-hide');
+		$(views.feed).removeClass('section-hide');
+	}	
 }
+
 
 const submitMealBtnPress = $('.js-submit-meal');
 submitMealBtnPress.click(collectMealData);
@@ -595,12 +616,22 @@ function collectMealData(e) {
 
 
 // LOGGING A COMMENT
+
 const commentButton = $('.js-comment-btn');
 commentButton.click(onCommentBtn);
 
 function onCommentBtn(e) {
 	$(views.feed).addClass('section-hide');
+	$(views.logMealCard).addClass('section-hide');
 	$(views.logCommentCard).removeClass('section-hide');
+
+const closeCommentBtn = $('.js-close-log-comment');
+closeCommentBtn.click(onLogCommentX);
+	
+	function onLogCommentX(e) {
+		$(views.logCommentCard).addClass('section-hide');
+		$(views.feed).removeClass('section-hide');
+	}	
 }
 
 const submitCommentBtnPress = $('.js-submit-comment');
@@ -608,44 +639,42 @@ submitCommentBtnPress.click(collectCommentData);
 
 function collectCommentData(e) {
 
-	const comment = $('.js-meal-comment').val() || "";
-	const endTime = Date.now();
+	const comment = $('.js-comment-comment').val() || "";
+	const start_time = Date.now();
+	console.log(comment, start_time);
+
+	if (!comment === "") {
+		alert('awww, belly rub please?!');
+		return;
+	}
 
 
-	// DoggyDash
-	// 	.getDogIdFromUser(firebase.auth().currentUser)
-	// 	.then((dogId) => DoggyDash.getDog(dogId))
-	// 	.then(function(object) {
-	// 		const {dogId, data} = object;
-	// 		console.log(dogId, data)
+	DoggyDash
+		.getDogIdFromUser(firebase.auth().currentUser)
+		.then((dogId) => DoggyDash.getDog(dogId))
+		.then(function(object) {
+			const {dogId, data} = object;
+			console.log(dogId, data)
 
-	// 		const currentActivity = data.currentActivity;
-	// 		const activity = data.activities[currentActivity];
-	// 		const activityObj = {
-	// 			hasWater: isWater,
-	// 			hasMeal: isMeal,
-	// 			comment: comment,
-	// 			end_time: endTime,
-	// 		};
+			const activity = {
+				type: 'notes',
+				properties: {
+					start_time: start_time,
+					comment: comment,
+				},
+				actor: firebase.auth().currentUser.uid,
+			};
 
-	// 		if (typeof activity === "undefined") {
-	// 			$(views.feed).removeClass('section-hide');
-	// 			$(views.logMealCard).addClass('section-hide');
+			return DoggyDash.addActivity(dogId, activity, false);
+		})
+		.then((object) => {
+			const {dogId, data} = object;
+			buildFeed(data)
+			$(views.feed).removeClass('section-hide');
+			$(views.logCommentCard).addClass('section-hide');
+		});
 
-	// 			return;
-	// 		}
 
-	// 		$('.js-dog-image').attr('src', data.properties.dogImage);
-
-	// 		console.log(dogId, activityObj, currentActivity)
-	// 		return DoggyDash.updateActivity(dogId, activityObj, currentActivity);
-	// 	})
-	// 	.then((object) => {
-	// 		const {dogId, data} = object;
-	// 		buildFeed(data)
-	// 			$(views.feed).removeClass('section-hide');
-	// 			$(views.logMealCard).addClass('section-hide');
-	// 	});
-
+	
 	
 }
