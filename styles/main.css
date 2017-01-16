@@ -67,15 +67,6 @@
 	padding: 5px;
 }
 
-.dash-logo{
-	color: black;
-	float: left;
-	margin: 0 auto; 
-	color:#ffadda;
-	font-weight: 900px;
-	font-size: 26px;
-	font-family: 'Muli', sans-serif;
-}
 
 
 .my-btn {
@@ -181,6 +172,13 @@ font-family: 'Muli', sans-serif;
 #doggy-dash .materialize-textarea {
 	padding-bottom: 0;
 }
+
+#doggy-dash .dash-logo{
+	float: left;
+	box-sizing: border-box;
+	max-height: 30%;
+}
+
 
 /*Event Card*/
 
