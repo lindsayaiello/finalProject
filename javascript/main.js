@@ -8,6 +8,13 @@ monitorUserAuthentication(function() {
        
 });
 
+// These rules require authentication
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
 
 
 // list of the views
