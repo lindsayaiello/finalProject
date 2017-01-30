@@ -4,7 +4,7 @@ sideBar();
 monitorUserAuthentication(function() {
 	getUserInfo();
 	buildAccountData();
-    addToHomescreen();
+    
        
 });
 
@@ -143,6 +143,7 @@ function buildAccountData() {
 					})
 					.then(() => {
 						populateFeed(user.uid);
+						addToHomescreen();
 					})
 				
 			}
