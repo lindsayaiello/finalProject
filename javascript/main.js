@@ -247,14 +247,13 @@ function buildFeed(data) {
 			function drawFeedItem(currentFeedItem) {
 				console.log(currentFeedItem)
 				
-				const authenticatedUser = firebase.auth().currentUser;
 				const currentUser = userIds[currentFeedItem.actor];
-				let userName;
+				let displayName;
 				if (currentUser.email === authenticatedUser.email) {
-					userName = 'You'
+					displayName = 'You'
 				}
 				else {
-					userName = currentUser.name;
+					displayName = currentUser.name;
 				}
 
 				const startTime = moment(currentFeedItem.properties.start_time)
@@ -277,7 +276,7 @@ function buildFeed(data) {
 <li class="collection-item avatar">
 	<img src="${currentUser.photo}" alt="#!user" class="js-user-img circle">
 	<h5>
-		<span class="black-text name">${userName}</span> took 
+		<span class="black-text name">${displayName}</span> took 
 		<span>${data.properties.dogName}</span> 
 		for a 
 		<span>${currentFeedItem.type}</span>
@@ -300,7 +299,7 @@ function buildFeed(data) {
 <li class="collection-item avatar">
 	<img src="${currentUser.photo}" alt="#!user" class="js-user-img circle">
 	<h5>
-		<span class="black-text name">${userName}</span> fed 
+		<span class="black-text name">${displayName}</span> fed 
 		<span>${data.properties.dogName}</span> 
 		a 
 		<span>${currentFeedItem.type}</span>
@@ -322,7 +321,7 @@ function buildFeed(data) {
 <li class="collection-item avatar">
 	<img src="${currentUser.photo}" alt="#!user" class="js-user-img circle">
 	<h5>
-		<span class="black-text name">${userName}</span> left some 
+		<span class="black-text name">${displayName}</span> left some 
 		<span>${currentFeedItem.type}</span>
 		about 
 		<span>${data.properties.dogName}</span> 
