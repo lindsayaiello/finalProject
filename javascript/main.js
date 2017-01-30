@@ -143,7 +143,7 @@ function buildAccountData() {
 					})
 					.then(() => {
 						populateFeed(user.uid);
-						addToHomescreen();
+			
 					})
 				
 			}
