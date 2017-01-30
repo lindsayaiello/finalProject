@@ -8,14 +8,6 @@ monitorUserAuthentication(function() {
        
 });
 
-// These rules require authentication
-{
-  "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
-  }
-}
-
 
 // list of the views
 const views = {
@@ -254,7 +246,8 @@ function buildFeed(data) {
 
 			function drawFeedItem(currentFeedItem) {
 				console.log(currentFeedItem)
-
+				
+				const authenticatedUser = firebase.auth().currentUser;
 				const currentUser = userIds[currentFeedItem.actor];
 				let userName;
 				if (currentUser.email === authenticatedUser.email) {
