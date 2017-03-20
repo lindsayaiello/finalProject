@@ -1,0 +1,200 @@
+/* CURRENTLY IN: styles/main.css */
+
+
+/*log in page info*/
+
+.log-in{
+	text-align: center;
+	margin: 20px;
+}
+
+
+.logs{
+	text-align: center;
+}
+.log-in-btn{
+	margin: 0px auto;
+	box-sizing: border-box;
+}
+
+.body-info{
+	width:100%;
+	margin:5px;
+	background-color: white;
+}
+
+/*sign up page info*/
+
+.signup-fields{
+	text-align: center;
+	padding: 20px;
+}
+
+.validate{
+     box-shadow: 0 .5px 0 0 #000;
+     padding: 4px;
+}
+
+.log-in-btn{
+	margin:10px;
+}
+
+/*invite page info*/
+
+.invite-fields{
+	text-align: center;
+	padding: 20px;
+}
+
+/*event page info*/
+
+.event-page-style{
+	text-align: center;
+}
+
+.slide-menu {
+	color: black;
+}
+
+
+/*Top Nav Bar*/
+.nav-wrapper{
+	background-color: white;
+	color: white;
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 5px;
+}
+
+.dash-logo{
+	color: black;
+	float: left;
+	margin: 0 auto; 
+	color:#ffadda;
+	font-weight: 900px;
+	font-size: 26px;
+	font-family: 'Muli', sans-serif;
+}
+
+
+.my-btn {
+    float: right;
+    box-sizing: border-box;
+    /*background-color: #ffadda;*/
+    color: white;
+    font-size: 10px;
+    margin: 0 5px;
+    padding: 2px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 100px;
+    margin-top: 10px;
+    font-family: 'Muli', sans-serif;
+}
+
+
+.body-wrapper{
+	min-height: 1000px;
+	max-height: 5000px;
+	width: 100%
+}
+
+/* Left Nav Info */
+.left-nav{
+width: 20%;
+font-family: 'Muli', sans-serif;
+}
+
+.collapsible-header{
+	font-size: 8px;
+}
+
+
+
+/*Feed Space*/
+
+
+
+/*That's my Dawg!*/
+
+.section-hide {
+	display: none;
+}
+
+.dog-box{
+	box-sizing: border-box;
+	float: left;
+	width: 100%;
+	background-color: white;
+	padding: 20px;
+}
+
+.dog-header{
+	color:black;
+	text-align: center;
+}
+
+.my-dog-img{
+	box-sizing: border-box;
+	background-color: grey;
+	height: 100px;
+	width: 100px;
+	/* this will center block elements BUT you must specify the width*/
+	margin: 0 auto;
+}
+
+/*Start / End Walk Card*/
+
+#doggy-dash .body-info{
+	font-family: 'Muli', sans-serif;
+}
+
+#doggy-dash .file-input-img-wrapper {
+	background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+#doggy-dash .file-input-image {
+	height: 200px;
+    background: transparent;
+}
+
+#doggy-dash .img-preview {
+	width: 100%;
+	max-width: 200pxs;
+	padding: 5px;
+}
+
+#doggy-dash .img-preview {
+	width: 100%;
+	max-width: 200px;
+	padding: 20px;
+}
+
+#doggy-dash .card-content {
+	max-height: none;
+}
+
+#doggy-dash .materialize-textarea {
+	padding-bottom: 0;
+}
+
+/*Event Card*/
+
+
+#doggy-dash .collection-item h5 {
+	padding-right: 50px;
+}
+
+#doggy-dash .collection-item .small-img {
+	width: 24px;
+}
+
+.clearfix:after {
+	clear: both;
+	content: "";
+	display: block;
+}

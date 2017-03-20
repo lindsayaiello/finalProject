@@ -1,0 +1,382 @@
+<!-- python -m SimpleHTTPServer 9009 -->
+<!doctype html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0;'>
+        <title>doggie dash</title>
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="doggie dash logo.jpg"/>
+        <link rel="stylesheet" type="text/css" href="styles/addtohomescreen.css">
+        <script src="javascript/addtohomescreen.js"></script> 
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <link rel='stylesheet' href='styles/main.css'>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+    </head>
+    <!-- Left Nav Begins -->
+    <body class="body-info clearfix" id="doggy-dash">
+        <!-- BEGIN NAV -->
+        <nav class="nav-wrapper col s12 m12 clearfix" style="width:98%; margin:1px; padding:0;">
+            <a href="#" data-activates="slide-out" class="button-collapse slide-menu" style="display:block"><i class="material-icons">settings</i></a>
+            <span class="dash-logo">doggie dash</span>
+        </nav>
+        <!-- END NAV -->
+        <!-- SLIDE MENU -->
+        <ul id="slide-out" class="side-nav" style="max-width: 200px;">
+            <li>
+                <div class="userView" style="padding: 70px 10px 0px; height: 200px; width: 200px;">
+                    <div class="background">
+                        <img class="js-dog-image file-input-image" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=550%C3%97550&w=550&h=550">
+                    </div>
+                    <a href="#!user"><img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" ></a>
+                    <a href="#!name"><span class="white-text name js-user-name">Loading...</span></a>
+                    <a href="#!email"><span class="white-text email js-user-email">Loading...</span></a>
+                </div>
+            </li>
+            <li><a class="modal-trigger waves-effect" href="#modal3">My Account</a></li>
+            <li><a class="modal-trigger waves-effect" href="#modal1">Invite Authorized Users</a></li>
+            <li><a class="modal-trigger waves-effect" href="#modal2">Share Doggie Dash</a></li>
+
+
+        </ul>
+        <!-- END SLIDE MENU -->
+        <!-- START FLOATING BUTTON -->
+        <div class="fixed-action-btn js-fixed-action-btn">
+            <a class="btn-floating btn-large pink accent-1">
+            <i class="large material-icons">pets</i>
+            </a>
+            <ul>
+                <li><a class="btn-floating blue lighten-2 js-comment-btn"><i class="material-icons">comment</i></a></li>
+                <li><a class="btn-floating yellow js-meal-btn"><i class="material-icons"><i class="material-icons">restaurant_menu</i></i></a></li>
+                <li><a class="btn-floating green lighten-2 js-walk-btn"><i class="material-icons">directions_walk</i></a></li>
+            </ul>
+        </div>
+        <!-- END FLOATING BUTTON -->
+        <!-- PAGE ELEMENTS -->
+
+      <!-- SPINNER START -->
+            <div class="row center js-spinner">
+              <br>
+              <br>
+                <div class="col s12 m12 center">
+                  <div class="preloader-wrapper big active">
+                     <div class="spinner-layer spinner-yellow-only">
+                        <div class="circle-clipper left">
+                           <div class="circle"></div>
+                           </div><div class="gap-patch">
+                           <div class="circle"></div>
+                           </div><div class="circle-clipper right">
+                          <div class="circle"></div>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+      <!-- SPINNER END -->
+
+
+        <!-- SIGN UP FORM... -->
+        <div class="container">
+            <div class="row js-dog-info-form section-hide">
+                <div class="col s9 m12">
+                    <h4>Tell us about your dog!</h4>
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <div class="file-field input-field">
+                                <div class="btn file-input-img-wrapper">
+                                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=200%C3%97200&w=200&h=200" class="js-file-image-preview img-preview">
+                                    <input type="file" class="file-input-image js-file-image">
+                                </div>
+                            </div>
+                            <!-- file-field -->
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <form>
+                                    <div class="input-field col s12">
+                                        <input id="name" type="text" class="validate js-dog-name">
+                                        <label for="name" data-error="Required Field" data-success="Great name for a dog!">Name</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="breed" type="text" class="validate js-dog-breed">
+                                        <label for="breed" data-error="Required Field" data-success="LOVE!">Breed</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="age" type="text" class="validate js-dog-age">
+                                        <label for="age" data-error="Required Field" data-success="We won't tell!">Age</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="vetname" type="text" class="validate js-vet-name">
+                                        <label for="vetname" data-error="wrong" data-success="right">Vet's Name - Optional</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="vetphone" type="text" class="validate .js-vet-phone">
+                                        <label for="vetphone" data-error="wrong" data-success="right">Vet's Phone - Optional</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="microchip" type="text" class="validate js-microchip">
+                                        <label for="microchip" data-error="wrong" data-success="right">Microchip ID# - Optional</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="microchiphotline" type="text" class="validate js-microchip-hotline">
+                                        <label for="microchiphotline" data-error="wrong" data-success="right">Microchip Hotline # - Optional</label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-action">
+                                <button class="btn waves-effect waves-light green lighten-2 right js-account-submit" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                            <!-- card-action -->
+                        </div>
+                        <!-- card-stacked -->
+                    </div>
+                    <!-- card horizontal -->
+                </div>
+                <!-- col s12 m7 -->
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+        <!-- END SIGN UP FORM... -->
+
+        <!-- FEED -->
+
+        <div class="container  section-hide js-feed">
+            <div class="row">
+              <div class="col s12 m12 center">
+              <br>
+             <h5>Welcome to <a href="#!dogname"><span class="black-text dogname js-dog-name-check-plural">Loading...</span></a> Dash</h5>
+                <img class="js-dog-image circle img-preview">
+              </div>
+            </div>
+           <ul class="collection">
+              <li class="collection-item avatar">
+                 Welcome to Doggie Dash!
+                 <br>
+                 To log a new action click the menu on the bottom!
+              </li>
+              <!-- end LI -->
+           </ul>
+           <!-- end UL -->
+        </div>
+
+        <!-- END FEED -->
+
+<!-- START / END WALK CARD -->
+<div class="container section-hide js-start-walk">
+  <div class="row valign-wrapper" style="margin-bottom: 2px; margin-top: 8px;">
+    <div class="col s12 m12">
+      <i class="small material-icons right js-close-start-walk section-hide">cancel</i>
+    </div>
+  </div>
+  <div class="row valign-wrapper">
+    <div class="col s12 m12">
+        <div class="card large">
+            <div class="card-image">
+                <a href="#!map"><img class="map" src="https://www.google.com/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,Wv56nRcjbOsl3o4dtUOhTxk2U1kGgPmJQ9fCl3dRKBHn5_pzsNdw5aUFfm04gaBqY5k3MBi6jnWMmXghJT3U-SVRXsJuFszyyFPiM1YRobyMGjH_p9vogjmVrXDjEno9gUiVrxMCaAK-EpAngdR_LbjmcDLu0I_VSvnASG-lx_c8vpblZZ9BiNmW_rymymVxYXzqWFG7lWs2IuhojXZWfmLiPqKpLfpldFcbtipIUJknMlIrmRHI90YVZuCRmCT1XlzZZRgpm5Jo2V1f3rrAg15tUbwNAlY2tut0cK4"></a>
+            </div> <!-- card image -->
+              <div class="card-content center">
+              <img class="circle js-user-img" src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg">
+              <br>
+              <br>
+              <h6>Hey
+              <a href="#!name"><span class="black-text name js-user-name"></span></a>,</h6>
+              <h5 class="greeting"><span class="js-walk-greeting">Let's take 
+              a walk with</span>
+              <a href="#!dogname"><span class="black-text dogname js-dog-name">!</span></a>!</h5>
+              <br>
+              </div> <!-- card content -->
+            <div class="card-action center">
+                <a class="waves-effect waves-light btn green lighten-2 js-start-walk-btn section-hide">Start Walk</a>
+                <a class="waves-effect waves-light btn green lighten-2 js-end-walk-btn section-hide">End Walk</a>
+        </div> <!-- card -->
+      </div> <!-- col s6 m6 -->
+    </div> <!-- row -->
+    </div>
+  </div> <!-- container -->
+    <!-- START / END WALK CARD -->
+
+
+  <!-- WALK REPORT CARD -->
+        <div class="container js-report-card section-hide">
+          <div class="row valign-wrapper" style="margin-bottom: 2px; margin-top: 8px;">
+            </div>
+             <div class="row valign-wrapper">
+              <div class="col s12 m12">
+                <div class="card large">
+                  <div class="card-image">
+                            <a href="#!map"><img class="map" style="padding-bottom:20px;" src="https://www.google.com/maps/vt/data=RfCSdfNZ0LFPrHSm0ublXdzhdrDFhtmHhN1u-gM,Wv56nRcjbOsl3o4dtUOhTxk2U1kGgPmJQ9fCl3dRKBHn5_pzsNdw5aUFfm04gaBqY5k3MBi6jnWMmXghJT3U-SVRXsJuFszyyFPiM1YRobyMGjH_p9vogjmVrXDjEno9gUiVrxMCaAK-EpAngdR_LbjmcDLu0I_VSvnASG-lx_c8vpblZZ9BiNmW_rymymVxYXzqWFG7lWs2IuhojXZWfmLiPqKpLfpldFcbtipIUJknMlIrmRHI90YVZuCRmCT1XlzZZRgpm5Jo2V1f3rrAg15tUbwNAlY2tut0cK4"></a>
+                  </div>
+                        <!-- card image -->
+                        <div class="card-content center">
+                            <form action="#">
+                                <div class="center">
+                                    <input class="js-walk-pee" type="checkbox" id="pee" value="false" />
+                                    <label for="pee">
+                                    <img class="small-img" src="assets/pee emoji.png">
+                                    </label>
+                                    <span class="white-text">smallcow</span>
+                                    <input type="checkbox" class="js-walk-poop" id="poop"/>
+                                    <label for="poop">     
+                                    <img class="small-img" src="assets/poop emoji.png">
+                                    </label> 
+                                </div>
+                            </form>
+                            </div>
+                          <form class="col s12" style="margin-left: 20px; padding-top: 20px;">
+                            <div class="row">
+                              <div class="input-field col s11">
+                                <textarea id="icon_prefix2" class="materialize-textarea js-walk-comment"></textarea>
+                                <label for="icon_prefix2">All the juicy details...</label>
+                              </div>
+                            </div>
+                          </form>
+                          <div class="card-action center">
+                            <a class="waves-effect waves-light btn pink lighten-2 js-submit-walk">Submit</a>
+                         </div> 
+                        </div>
+                        <!-- card content -->
+
+      </div> <!-- col s6 m6 -->
+    </div> <!-- row -->
+  </div> <!-- container -->
+        <!-- container -->
+        <!-- WALK REPORT CARD CARD -->
+
+        <!-- LOG A MEAL CARD -->
+<div class="container js-log-meal-card section-hide">
+  <div class="row valign-wrapper" style="margin-bottom: 2px; margin-top: 8px;">
+    <div class="col s12 m12">
+      <div class="card large">
+        <i class="small material-icons right js-close-log-meal">cancel</i>
+        <div class="col s12 m12">
+          <div class="card-content center">
+          <h5>OMG. I love snack time!</h5>
+          <img class="js-dog-image circle img-preview" style='padding:20px;'> 
+          <form action="#">
+          <div class="center">
+          <input class="js-meal-water" type="checkbox" id="water"/>
+          <label for="water">
+          <img class="small-img" src="assets/water emoji.png">
+          </label>
+          <span class="white-text">smallcow</span>
+          <input class="js-meal-meal" type="checkbox" id="food"/>
+          <label for="food">     
+          <img class="small-img" src="assets/food emoji.png">
+          </label>
+          </div>
+          </form>
+          <form class="col s12" style="margin-left: 20px;">
+          <div class="row">
+          <div class="input-field col s11">
+          <textarea id="icon_prefix2" class="materialize-textarea js-meal-comment"></textarea>
+          <label for="icon_prefix2">nom, nom, nom...</label>
+          </div>
+          </div>
+          </form>
+          </div>
+          <!-- card content -->
+          <div class="card-action center">
+          <a class="waves-effect waves-light btn pink lighten-2 js-submit-meal">Submit</a>
+          </div>
+          <!-- card -->
+          </div>
+          <!-- col s6 m6 -->
+      </div> <!-- card large -->
+    </div> <!-- col s12 m12 -->
+        
+    </div> <!-- row valign-wrapper -->
+  </div> <!-- row valign-wrapper -->
+</div> <!-- container js-log-meal-card -->
+
+        <!-- LOG A COMMENT CARD -->
+<div class="container js-log-comment-card section-hide">
+  <div class="row valign-wrapper">
+    <div class="col s12 m12">
+      <div class="card large">
+          <i class="small material-icons right js-close-log-comment">cancel</i>
+            <div class="col s12 m12">
+              <div class="card-content center">
+            <h5>Playtime? Cozy time?
+            <br>
+            Give us the scoop!
+            </h5>
+            <img class="js-dog-image circle img-preview" style='padding:20px;'> 
+        <form class="col s12" style="margin-left: 20px;">
+          <div class="row">
+            <div class="input-field col s11">
+              <textarea id="icon_prefix2" class="materialize-textarea js-comment-comment"></textarea>
+              <label for="icon_prefix2">rub the belly...</label>
+            </div> <!-- input-field col s11 -->
+          </div> <!-- row -->
+        </form> <!-- col s12 -->
+        </div> <!-- card content -->
+        <div class="card-action center">
+          <a class="waves-effect waves-light btn pink lighten-2 js-submit-comment">Submit</a>
+        </div> <!-- card action center -->
+        </div>
+      </div> <!-- card large -->
+    </div><!-- col s6 m6 -->
+  </div> <!-- row -->
+</div> <!-- container -->
+
+<!-- Invite others to your dog dash -->
+  <!-- Modal Structure -->
+  <div id="modal1" style="max-height: 30%;" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h6>Copy & paste the link below to invite others to join
+        <a href="#!dogname">
+          <span class="black-text dogname js-dog-name-check-plural"></span>
+        </a>
+         Dash
+      </h6>
+      <input id="foo" class="js-copy-link" type="text" readonly value="http://localhost:9009/?dogId=-asdfasdfasfd"/>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-pink btn-flat ">Close</a>
+    </div>
+  </div>
+    <!-- End Invite Others -->
+          
+<!-- Share dog dash -->
+  <!-- Modal Structure -->
+  <div id="modal2" style="max-height: 30%;" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h6>Copy & paste the link below to invite other dog owner's to set up their own Doggie Dash!</h6>
+      <input id="foo" class="js-copy-link" type="text" readonly value="https://github.com/lindsayaiello/finalProject/index.html"/>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-pink btn-flat ">Close</a>
+    </div>
+  </div>
+    <!-- End Share Dog Dash -->
+
+<!-- My Account Info Update -->
+  <!-- Modal Structure -->
+  <div id="modal3" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-pink btn-flat ">Agree</a>
+    </div>
+  </div>
+    <!-- End Update My Account Info -->
+
+
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.3/firebase.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.16/clipboard.min.js"></script>
+        <script src="javascript/doggydash.js"></script>
+        <script src='javascript/main.js'></script>
+
+    </body>
+</html>
